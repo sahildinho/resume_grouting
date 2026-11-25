@@ -1,0 +1,922 @@
+# ==============================================================================
+# MASTER EXPERIENCE KNOWLEDGE BASE (Source of Truth)
+# Candidate: Sahil Choudhari
+# Purpose: Exhaustive repository of all professional projects, workflows,
+#          technical depth, metrics, challenges, and impact.
+# ==============================================================================
+
+candidate_profile:
+  full_name: "Sahil Choudhari"
+  contact:
+    phone: "8655445155"
+    email: "choudhari.1@alumni.iitj.ac.in"
+    location: "Chennai / Mumbai / Pune / Bengaluru (Open to Relocation)"
+    linkedin: "https://linkedin.com/in/sahil-choudhari-18a977179"
+    researchgate: "https://www.researchgate.net/profile/Sahil-Choudhari-2"
+    github: "https://github.com/sahildinho"
+  
+  target_roles:
+    - "Data Scientist"
+    - "Computer Vision Engineer"
+    - "LLM Engineer / Generative AI Engineer"
+    - "NLP Engineer"
+    - "Machine Learning Engineer / AI Engineer"
+
+  executive_bio: >
+    AI & Machine Learning Engineer with 4+ years of production experience across Automotive,
+    E-Commerce, and Logistics domains. M.Tech graduate from IIT Jodhpur with international ASME publications
+    and a registered vision inspection patent. Specializes in LLMs / RAG systems, MultiModal AI,
+    Computer Vision architectures (detection, segmentation, feature extraction), and cloud-native
+    production ML pipelines.
+
+# ==============================================================================
+# 1. PROFESSIONAL WORK EXPERIENCE & ELABORATIVE PROJECTS
+# ==============================================================================
+work_experience:
+  # ----------------------------------------------------------------------------
+  # COMPANY 1: Mahindra AI (Mahindra Research Valley)
+  # ----------------------------------------------------------------------------
+  - company: "Mahindra AI"
+    parent_org: "Mahindra & Mahindra Ltd."
+    location: "Mumbai, Maharashtra, India"
+    designation: "Data Scientist"
+    employment_type: "Full-Time"
+    tenure:
+      start_date: "July 2024"
+      end_date: "Present"
+
+    company_overview: >
+      Central AI research and deployment arm focusing
+      on integrating Generative AI, Computer Vision, and Physics-informed Machine Learning
+      into automotive R&D, vehicle design, testing and manufacturing quality assurance.
+
+    key_result_areas:
+      - kra_title: "AI/ML Product Incubation & Research Translation"
+        description: >
+          Translating cutting-edge Generative AI and 3D Deep Learning research into production-ready
+          automotive engineering tools, taking concepts from mathematical formulations to enterprise rollout.
+        deliverables_and_ownership:
+          - "Owned the technical roadmap and architecture of 'CAEGPT', MRV's central engineering RAG framework."
+          - "Formulated 3D surrogate neural network benchmarks to reduce FEA simulation cycles across vehicle programs."
+        metrics: "Accelerated knowledge discovery turnaround by ~70% across 50+ simulation engineers."
+
+      - kra_title: "Cloud Architecture, System Availability & Governance"
+        description: >
+          Designing reliable, secure, and scalable cloud architectures on GCP for AI services,
+          robust data isolation, and adherence to automotive QA standards.
+        deliverables_and_ownership:
+          - "Architected serverless document processing microservices with 99.9% uptime SLA."
+          - "Enforced hallucination guardrails, audit logging, and role-based data boundaries on engineering intellectual property."
+
+      - kra_title: "Cross-Functional Stakeholder Alignment & Delivery"
+        description: >
+          Partnering closely with vehicle crash, NVH, aerodynamics, and quality testing leads to discover
+          operational bottlenecks, define technical scopes, and drive enterprise adoption of AI tools.
+        deliverables_and_ownership:
+          - "Conducted technical reviews, user feedback iterations, and design space validation workshops with domain experts."
+
+    projects:
+      # PROJECT 1.1: CAEGPT
+      - project_name: "CAEGPT - Enterprise RAG & Engineering Knowledge Assistant"
+        project_id: "mahindra_caegpt"
+        domains: ["llm", "rag", "nlp", "ai_engineer", "enterprise_search"]
+        
+        executive_summary: >
+          Architected and developed "CAEGPT", an enterprise-grade Retrieval-Augmented Generation (RAG)
+          system designed to revolutionize how vehicle engineering, simulation, and crash-testing teams
+          search, synthesize, and query decades of dense technical documentation, CAE simulation reports,
+          and automotive standards.
+
+        business_context:
+          problem_statement: >
+            Engineers spent hundreds of hours manually searching through tens of thousands of unstructured
+            CAE simulation PDFs, historical test logs, and automotive compliance guidelines with zero
+            unified semantic search, leading to duplicated tests and prolonged design cycles.
+          stakeholders_and_users: >
+            50+ CAE Simulation Engineers, Vehicle Design Teams, and Testing Leads across MRV Chennai.
+          scale_and_volume: >
+            Indexed 8,000+ technical CAE engineering reports, tables, test matrices, and simulation logs.
+          budget_and_resources: >
+            Hosted on internal cloud clusters; optimized token and compute expenditure using open-source
+            embedding models and targeted chunking.
+          business_impact: >
+            Reduced historical documentation retrieval time by ~70%, accelerating simulation root-cause
+            analysis and vehicle design parameter sign-off.
+
+        architecture_and_workflow:
+          step_1_ingestion: >
+            Multi-stage document extraction pipeline parsing complex multi-column PDFs, engineering tables,
+            and CAE metadata headers using specialized OCR and layout-aware parsers.
+          step_2_chunking_and_embedding: >
+            Implemented hybrid chunking (sliding window with contextual paragraph preservation) to maintain
+            relationships between numerical simulation tables and textual analysis. Embeddings generated via
+            state-of-the-art dense embedding models.
+          step_3_vector_storage: >
+            Integrated Vector Database (Milvus / Qdrant / Chroma) with metadata filtering based on vehicle
+            model, test type (NVH, Crash, Durability), and authoring date.
+          step_4_retrieval_and_reranking: >
+            Hybrid search combining dense semantic retrieval with sparse BM25 keyword matching, followed by
+            cross-encoder reranking to elevate high-precision engineering paragraphs.
+          step_5_generation_and_guardrails: >
+            LLM synthesis with strict source attribution, prompt engineering with few-shot automotive
+            context, and hallucination guardrails rejecting queries outside verified documents.
+
+        tech_stack:
+          llm_and_agents: ["Llama 3 / Mistral / OpenAI API", "LangChain / LlamaIndex", "Prompt Engineering"]
+          embeddings_and_search: ["Hugging Face Embeddings", "BM25", "Cross-Encoder Reranker", "Semantic Search"]
+          vector_db: ["ChromaDB / Milvus / Qdrant", "PostgreSQL (pgvector)"]
+          backend_and_api: ["Python 3.10+", "FastAPI", "Uvicorn"]
+          frontend_and_ui: ["Streamlit / React"]
+          devops_and_storage: ["Docker", "Git", "On-Prem / Cloud Storage"]
+
+        challenges_and_solutions:
+          - challenge: "Dense tabular engineering data lost context during standard token chunking."
+            solution: "Developed table-aware serialization converting Markdown/HTML tables into contextualized key-value pairs before vectorization."
+          - challenge: "LLM hallucinations on critical numeric automotive tolerance limits."
+            solution: "Enforced strict groundedness checks: responses require exact document chunk citations and confidence scoring; if context is missing, the agent explicitly flags missing telemetry."
+
+        bullet_bank_by_archetype:
+          llm_engineer:
+            - 'Conceptualized and built "CAEGPT", an enterprise RAG framework using hybrid vector search (ChromaDB + BM25) and cross-encoder rerankers, enabling 50+ engineers to query complex simulation documents with zero-hallucination guardrails.'
+            - "Engineered layout-aware document ingestion pipelines parsing multi-column engineering reports and tabular simulation data, increasing context recall accuracy by 35%."
+          nlp_engineer:
+            - "Architected domain-specific semantic search engine using fine-tuned dense embeddings and metadata filtering over 10,000+ unstructured automotive engineering PDFs."
+            - "Developed specialized prompt templates and citation extraction modules ensuring verifiable responses with exact document line references."
+          data_scientist:
+            - "Applied NLP and semantic information retrieval techniques to automate knowledge discovery from historical vehicle test archives, reducing technical query turnaround by 70%."
+
+      # PROJECT 1.2: 3D Deep Learning & Shape-Based AI
+      - project_name: "Shape-Based AI & 3D Deep Learning for CAE Simulation"
+        project_id: "mahindra_shape_ai"
+        domains: ["data_science", "computer_vision", "deep_learning", "3d_ai", "cae"]
+
+        executive_summary: >
+          Developed geometric deep learning and shape-based AI pipelines to predict vehicle aerodynamic
+          and structural stress behaviors directly from 3D CAD/mesh surfaces, bypassing days of computationally
+          intensive Finite Element Analysis (FEA).
+
+        business_context:
+          problem_statement: >
+            Traditional 3D CAE finite element simulations take 24–72 hours per geometric iteration,
+            limiting design exploration and delaying styling sign-offs.
+          stakeholders_and_users: >
+            Aerodynamics and Structural Durability R&D teams at Mahindra Research Valley.
+          scale_and_volume: >
+            Hundreds of 3D CAD/mesh iterations analyzed across diverse vehicular components.
+          business_impact: >
+            Accelerated early-stage concept validation from days to seconds, enabling rapid parametric design space exploration.
+
+        technical_details:
+          methodology: >
+            Implemented 3D geometric deep learning networks and explored surrogate AI tools (Altair Physics AI,
+            Ansys SimAI). Formulated confidence scoring metrics for 3D point cloud and surface mesh predictions
+            to guarantee reliability of simulation parameters.
+          tech_stack: ["PyTorch", "Physics AI (Altair)", "Sim AI (Ansys)", "NumPy", "SciPy", "3D Mesh Processing"]
+
+        bullet_bank_by_archetype:
+          data_scientist:
+            - "Implemented shape-based AI models to define design spaces and engineered confidence score metrics for 3D deep learning predictions, enhancing reliability of simulation parameters across complex geometries."
+            - "Developed statistical surrogate models to approximate high-dimensional CAE simulation outputs, shortening early-stage design iteration cycles from days to minutes."
+          computer_vision_engineer:
+            - "Formulated 3D geometric deep learning pipelines on point clouds and surface meshes, utilizing spatial convolutions to predict aerodynamic stress fields on automotive structures."
+
+      # PROJECT 1.3: Material Test Certificate WebApp
+      - project_name: "Material Test Certificate Automated Extraction & Verification Platform"
+        project_id: "mahindra_cert_webapp"
+        domains: ["data_science", "cv", "ocr", "cloud", "mlops", "fullstack"]
+
+        executive_summary: >
+          Designed and deployed an end-to-end automated document AI web application on Google Cloud Platform (GCP)
+          to ingest, OCR-extract, parse, compare, and validate vendor Material Test Certificates (MTCs) against
+          stringent automotive manufacturing specifications.
+
+        business_context:
+          problem_statement: >
+            Quality engineers manually inspected 1000+ scanned supplier test certificates each week, comparing
+            chemical compositions (Carbon, Manganese, etc.) and mechanical properties (tensile strength, yield)
+            against internal standards—a tedious, error-prone process causing QA bottlenecks.
+          stakeholders_and_users: >
+            Automotive Quality Assurance (QA) and Materials Engineering divisions.
+          scale_and_volume: >
+            Ingesting and analyzing 1,000+ multi-page PDF certificates weekly with 99.9% pipeline uptime.
+          business_impact: >
+            Automated 85% of manual compliance verification, preventing non-compliant raw material batches
+            from entering production lines.
+
+        architecture_and_workflow:
+          step_1_ingestion: "React frontend uploads supplier PDFs to secure GCP Cloud Storage buckets."
+          step_2_serverless_trigger: "Event-driven GCP Cloud Functions triggered on file arrival."
+          step_3_ocr_extraction: "Integrated OCR algorithms (Tesseract / Vision AI) and regex/NLP extraction to isolate chemical & mechanical property tables."
+          step_4_validation_engine: "Python comparison service checks extracted chemical thresholds against internal automotive standards stored in PostgreSQL."
+          step_5_reporting: "Generates real-time compliance diff reports and alerts engineers to deviations."
+
+        tech_stack:
+          cloud_and_serverless: ["Google Cloud Platform (GCP)", "Cloud Functions", "Cloud Storage"]
+          database: ["PostgreSQL", "Cloud SQL"]
+          ocr_and_nlp: ["Tesseract OCR / Google Cloud Vision API", "OpenCV", "Regex Parsing Engine"]
+          frontend_and_backend: ["Python", "FastAPI", "React.js"]
+
+        bullet_bank_by_archetype:
+          data_scientist:
+            - "Architected end-to-end Material Test Certificate comparison webapp on GCP, handling 1,000+ PDFs weekly with OCR-powered data extraction, PostgreSQL, Cloud Functions, and React frontend."
+            - "Engineered automated validation engine achieving 99.9% uptime and eliminating 85% of manual compliance verification for raw material quality control."
+          computer_vision_engineer:
+            - "Implemented optical document processing pipelines combining OCR and OpenCV image preprocessing to robustly extract distorted chemical and mechanical test matrices from scanned PDFs."
+          mlops_ai_engineer:
+            - "Constructed serverless event-driven architecture on GCP leveraging Cloud Functions and PostgreSQL, processing 1,000+ weekly document payloads with 99.9% SLA availability."
+      
+      # PROJECT 1.4: Road Load Data Acquisition (RLDA) Processing, Validation & Durability Analytics Platform
+      - project_name: "Automotive RLDA Ingestion, Signal Validation & Multi-Channel Durability Analytics Platform"
+        project_id: "mahindra_rlda_durability_platform"
+        domains: ["automotive_engineering", "data_engineering", "desktop_apps", "data_analysis", "sql_etl"]
+
+        executive_summary: >
+          Architected and developed an end-to-end desktop data pipeline and multi-channel durability analytics
+          suite (PySide6 / MS SQL Server) for Mahindra Research Valley (MDG Durability Group). The platform
+          ingests large batches of proving ground telemetry files, runs multi-stage integrity and sensor anomaly
+          validations (handling flatlines, corrupt files, and load-case anomalies), bulk-loads normalized data
+          into SQL Server, and provides interactive, color-coded comparative dashboards to evaluate joint forces
+          and cross-channel simultaneous peak loads across vehicle design revisions.
+
+        business_context:
+          problem_statement: >
+            Durability and testing teams capture extensive multi-channel road load time-series data across test
+            tracks (potholes, pavé, rough roads) and vehicle hardpoints. Ingesting raw files manually and identifying
+            sensor noise, signal drops, or column corruptions prior to durability calculations was labor-intensive,
+            risking flawed load cases entering fatigue simulations and cross-revision comparisons.
+          stakeholders_and_users: >
+            Materials & Durability Group (MDG), Automotive Testing & Proving Grounds Teams, and Suspension CAE Engineers.
+          scale_and_volume: >
+            Processes multi-channel time-series telemetry across 10+ proving ground track profiles (HF, LW, P1A, P1B,
+            P2A, P2B, RR, TT, PH) and 30+ suspension hardpoints/joints (spherical, revolute, cylindrical, bushings)
+            with configurable 100-row bulk database streaming.
+          business_impact: >
+            Automated pre-ingestion screening to intercept corrupted or abnormal runs before database commit via
+            standardized error classification (Error Codes 101–204), drastically cutting turnaround time for
+            side-by-side multi-revision durability sign-offs.
+
+        architecture_and_workflow:
+          step_1_ingestion_ui: "PySide6 desktop UI (upload_ui_2.py) scans folder structures for raw telemetry text files, capturing vehicle code, revision ID, revision date, and metadata."
+          step_2_validation_pipeline: "Runs a two-tier validation engine: Tier-1 file integrity checks (file validity 101, text format 102, corruption 103, inconsistent columns 104, empty payload 105, schema types 106) and Tier-2 signal anomaly checks (zero-signal flatline 201, 10ms peak-to-trough spike distortion 202, double-peak anomalies 203, double-valley anomalies 204) with real-time progress and CSV error export."
+          step_3_bulk_sql_loader: "Batches validated hardpoint records (BATCH_SIZE=100) and commits them to MS SQL Server (RLDA.dbo.hardpoints_1, forces_1, features_1) using pyodbc with fast_executemany optimization and transaction rollback protection."
+          step_4_analytics_sql_engine: "Dynamic T-SQL engine utilizing Common Table Expressions (CTEs) and OUTER APPLY keyword searches to normalize suspension systems (prefix.txt), track keywords (splitters_t.txt), and hardpoint keys (splitters_hp.txt) on-the-fly."
+          step_5_comparative_dashboards: "Multi-panel analytical dashboards (dashboard_1_3, dashboard_2_4, dashboard_3_4) supporting side-by-side 3-vehicle comparison across laden/unladen states, tracks, and channels for metrics (Max, Min, Damage, Mean, RMS, Range, Std), complete with signed percentage delta calculations and adaptive green/red gradient highlighting."
+
+        tech_stack:
+          frontend_and_desktop: ["Python", "PySide6 (Qt for Python)", "PyInstaller"]
+          database_and_etl: ["Microsoft SQL Server", "T-SQL (CTEs, OUTER APPLY)", "pyodbc", "fast_executemany"]
+          data_processing_and_analytics: ["Pandas", "NumPy", "CSV Engine"]
+          domain_modules: ["Automotive Multibody Telemetry", "Signal Integrity Verification", "Durability Load Case Analysis"]
+
+        bullet_bank_by_archetype:
+          data_engineer:
+            - "Engineered a high-throughput ETL desktop application using PySide6 and pyodbc, optimizing MS SQL Server batch ingestion (fast_executemany) across vehicle revision and hardpoint tables."
+            - "Constructed optimized T-SQL analytics procedures leveraging Common Table Expressions (CTEs) and OUTER APPLY pattern matching to normalize multi-channel suspension telemetry without full-table scans."
+            - "Designed atomic transaction pipelines with rollback safety and revision lifecycle management to prevent duplicate or corrupt test data entry."
+          data_analyst_durability_engineer:
+            - "Built interactive 3-panel durability comparison dashboards computing signed percentage differentials and statistical metrics (Max, Min, Damage, RMS, Mean, Std) across laden/unladen vehicle test runs."
+            - "Developed cross-channel joint force and simultaneous peak load analyzers with dynamic gradient visual cues to accelerate engineering review of multi-axis suspension loads."
+            - "Formulated automated signal validation logic detecting sensor flatlines and anomalous peak/trough differentials (10ms threshold) across test track datasets."
+          software_python_engineer:
+            - "Architected a modular desktop platform bundled with PyInstaller for proving ground durability teams, featuring asynchronous progress tracking, error classification grids, and CSV reporting."
+            - "Implemented custom UI color-mapping algorithms (HSV/RGB clamping) to visually highlight significant load deviations (>10% and negative shifts) across vehicle revisions."
+
+      # PROJECT 1.5: PRITHVI: Wheel Force Transducer (WFT) AI Twin & Virtual Sensing Platform
+      - project_name: "PRITHVI: Wheel Force Transducer (WFT) AI Twin & Virtual Sensing Platform"
+        project_id: "mahindra_prithvi_wft_ai_twin"
+        domains: ["automotive_engineering", "data_science", "deep_learning", "physics_informed_ai", "time_series", "mlops", "cae"]
+
+        executive_summary: >
+          Architected and developed "PRITHVI: WFT AI Twin" (Predictive Road-load Intelligence for Tyre Hub & Vehicle
+          force Inference), an industry-first physics-informed digital twin and virtual sensing platform at Mahindra
+          Research Valley (MRV). Leveraged deep sequence learning (Temporal Convolutional Networks - TCN), symbolic
+          regression (PySR / SINDy), nonlinear vehicle dynamics modeling (Pacejka Magic Formula), and gradient-boosted
+          ensembles (XGBoost) to accurately predict 24 wheel-center outputs (Fx, Fy, Fz forces and Mx, My, Mz moments
+          across all 4 wheels: LF, RF, LR, RR) directly from non-intrusive on-board sensors, eliminating physical
+          Wheel Force Transducer (WFT) hardware bottlenecks.
+
+        business_context:
+          problem_statement: >
+            Wheel Force Transducers (WFT) are multi-million dollar, fragile physical sensor assemblies in extremely
+            scarce supply, shared across all vehicle programs at MRV. Physical durability testing required up to 12 weeks
+            per test iteration across proving grounds (ruts, potholes, pavé, twist tracks), creating critical resource
+            bottlenecks that delayed chassis fatigue simulations, suspension design validation, and multi-revision sign-offs.
+          stakeholders_and_users: >
+            Materials & Durability Group (MDG), Vehicle Dynamics & Suspension Engineering Teams, CAE Fatigue Simulation
+            Leads, and Proving Ground Testing Divisions.
+          scale_and_volume: >
+            Ingested high-frequency multi-channel sensor telemetry across 7 distinct proving ground track environments
+            (Longwave, Twist, High Frequency, Pavé 1A, Pavé 1B, Pavé 2A, Pavé 2B) and diverse vehicle lines (M-Series,
+            U-Series, Z-Series) under laden and unladen conditions, inferring 24 continuous force and moment channels.
+          budget_and_resources: >
+            Deployed on Google Cloud Platform (GCP) with Dockerized microservices, Cloud SQL, Cloud Storage, a 7-track
+            Model Registry, VPC/Load Balancers, and dedicated GPU training instances.
+          business_impact: >
+            Cut testing timelines by 60% (from 12 weeks down to 4 weeks), completely eliminated physical WFT sensor
+            dependencies for Run 2 and Run 3 vehicle testing cycles, achieved 95% accuracy on vertical forces (Fz)
+            with NRMSE down to 1.6%–3.5%, and achieved 88% accuracy on lateral forces (Fy) with up to 81% error reduction
+            on hybrid architectures.
+
+        architecture_and_workflow:
+          step_1_multivariate_telemetry_ingestion: >
+            Ingested high-frequency time-series from standard on-board accelerometers, gyroscopes, wheel speed sensors,
+            suspension travel potentiometers, steering angles, and vehicle CAN bus signals across 7 proving ground track terrains.
+          step_2_physics_informed_feature_engineering: >
+            Modeled nonlinear suspension dynamics and damper/bumpstop characterization data using Sparse Identification
+            of Nonlinear Dynamics (SINDy) and Symbolic Regression via Genetic Programming (PySR) to discover analytical
+            closed-form equations for damper force-velocity (F-V) and bumpstop force-displacement (F-D). Integrated
+            Pacejka Magic Formula tire models for lateral force (Fy) mapping, Kinematics & Compliance (K&C) matrices,
+            unsprung mass dynamics, and jerk (d³x/dt³).
+          step_3_temporal_convolutional_network_tcn: >
+            Implemented deep Temporal Convolutional Networks (TCN) featuring dilated causal convolutions with exponentially
+            growing receptive fields and residual connections to capture long-horizon suspension memory and high-frequency
+            transients without requiring manual lead/lag feature crafting.
+          step_4_latent_feature_map_fusion: >
+            Extracted compact, high-dimensional latent temporal feature maps per wheel-end from the final TCN layer and
+            fused them with static vehicle parameters (curb weight, wheelbase, track width, roll/pitch centers) and operational states.
+          step_5_gradient_boosted_regression_pipeline: >
+            Trained specialized XGBoost regression heads on the fused temporal-physical representation to independently
+            infer 3-axis forces (Fx, Fy, Fz) and 3-axis moments (Mx, My, Mz) across Left-Front (LF), Right-Front (RF),
+            Left-Rear (LR), and Right-Rear (RR) wheel ends.
+          step_6_feature_selection_and_model_optimization: >
+            Applied systematic feature importance pruning, reducing lateral force features from 324 to 209 and pruning
+            100+ vertical force features, accelerating convergence and slashing NRMSE by up to 81% in critical wheel-ends.
+          step_7_cloud_mlops_and_inference_serving: >
+            Deployed the sequential multi-track inference pipeline on Google Cloud Platform (GCP) with containerized FastAPI
+            microservices, automated batch scoring on Cloud Storage time-series files, Cloud SQL logging, and a 7-track Model Registry.
+
+        tech_stack:
+          deep_learning_and_time_series: ["PyTorch", "Temporal Convolutional Networks (TCN)", "Dilated Causal Convolutions", "Multivariate Time Series"]
+          physics_informed_and_symbolic_ai: ["PySR (Symbolic Regression / Genetic Programming)", "SINDy (Sparse Identification of Nonlinear Dynamics)", "Pacejka Magic Formula Tire Model", "Damper F-V & Bumpstop F-D Dyno Models"]
+          machine_learning_and_stats: ["XGBoost", "Scikit-Learn", "NumPy", "Pandas", "SciPy", "Feature Importance & Pruning"]
+          cloud_and_mlops: ["Google Cloud Platform (GCP)", "Docker", "Cloud Storage", "Cloud SQL", "Model Registry", "FastAPI"]
+          domain_engineering: ["Wheel Force Transducers (WFT)", "Suspension Kinematics & Compliance (K&C)", "Road Load Data Acquisition (RLDA)", "Durability & Fatigue Load Cases"]
+
+        challenges_and_solutions:
+          - challenge: "Severe non-linearities and hysteresis in shock absorber damping and bumpstop impact during rough road transitions."
+            solution: "Applied SINDy and PySR symbolic regression on physical component dyno characterization data, extracting closed-form analytical equations (F(v) and F(d)) to inject domain-accurate physical inductive bias into the ML pipeline."
+          - challenge: "High-dimensional multi-sensor time-series caused feature explosion (324+ features per wheel-end) and overfitting on track-specific maneuvers."
+            solution: "Replaced manual lead/lag feature matrices with Dilated Causal TCN feature representations and pruned over 100 redundant collinear features, cutting NRMSE by up to 81% on lateral force models."
+          - challenge: "Generalizing load inference across drastically different proving ground tracks (Longwave sinusoidal waves vs. high-impact pavé cobbles vs. torsional twist tracks)."
+            solution: "Engineered a sequential track-segmented inference architecture with dedicated model ensembles registered in a GCP Model Registry for each of the 7 proving ground environments."
+
+        bullet_bank_by_archetype:
+          data_scientist:
+            - "Architected 'PRITHVI' (WFT AI Twin), an industry-first virtual sensing platform predicting 24-channel wheel-end forces and moments (Fx, Fy, Fz, Mx, My, Mz) across 4 wheels, slashing testing turnaround from 12 weeks to 4 weeks (60% reduction)."
+            - "Integrated PySR symbolic regression and SINDy to discover closed-form analytical governing equations for damper and bumpstop nonlinearities, embedding physical inductive bias into deep learning models."
+            - "Trained hybrid TCN-XGBoost architectures achieving 95% accuracy on vertical forces (Fz) and 88% accuracy on lateral forces (Fy), cutting normalized root mean squared errors (NRMSE) by up to 81%."
+          deep_learning_time_series_engineer:
+            - "Developed deep Temporal Convolutional Networks (TCN) with dilated causal convolutions and residual connections to capture long-context vehicle dynamics from high-frequency telemetry without manual lag engineering."
+            - "Extracted wheel-specific latent temporal feature maps and fused them with static vehicle parameters to feed high-throughput gradient-boosted regression ensembles."
+            - "Optimized high-dimensional feature spaces, pruning features from 324 to 209 for lateral force and dropping 100+ vertical features to accelerate convergence and boost out-of-sample generalization."
+          automotive_ai_engineer:
+            - "Eliminated multimillion-dollar Wheel Force Transducer (WFT) physical instrumentation bottlenecks for Run 2 and Run 3 vehicle proving ground durability cycles across 7 track environments."
+            - "Constructed end-to-end cloud ML pipelines on GCP featuring automated batch inference, Cloud SQL telemetry persistence, and a 7-track Model Registry with 99.9% uptime."
+
+      # PROJECT 1.6: Dynamic Pricing AI Agent & Causal Inference Platform for Spare Parts MRP Optimization
+      - project_name: "AI-Powered Dynamic Pricing & Spare Parts MRP Optimization Platform"
+        project_id: "mahindra_dynamic_pricing_finance_ai"
+        domains: ["data_science", "agentic_ai", "causal_inference", "finance_analytics", "pricing_optimization", "mlops"]
+
+        executive_summary: >
+          Architected and deployed an end-to-end AI-powered Dynamic Pricing and Maximum Retail Price (MRP)
+          Optimization platform for automotive spare parts. Combined econometric panel modeling, causal
+          inference (Microsoft EconML Causal Forests, 2SLS, Difference-in-Differences), and a LangGraph-orchestrated
+          Agentic AI assistant to quantify SKU-level customer price elasticity, simulate financial impact
+          (volume, revenue, gross margin, profit), and automate data-backed pricing decisions.
+
+        business_context:
+          problem_statement: >
+            Spare parts MRP revisions were historically dictated by qualitative business intuition rather than
+            quantitative causal analysis. Pricing leadership lacked tools to evaluate counterfactual questions
+            (e.g., "If we raise the MRP of a brake pad by 8%, what is the expected demand elasticity and margin delta?"),
+            risking margin erosion, inventory accumulation, dealer dissatisfaction, and customer churn.
+          stakeholders_and_users: >
+            Central Pricing Committee, Finance Leadership, Spare Parts Business Unit, Aftermarket Commercial Leads,
+            and Category Product Managers.
+          scale_and_volume: >
+            Constructed monthly panel datasets (Part ID × Month) covering thousands of spare part SKUs, consolidating
+            primary and secondary sales, realized prices, production costs, competitor indices, dealer inventory,
+            and vehicle population telemetry.
+          budget_and_resources: >
+            Deployed on enterprise cloud infrastructure with FastAPI microservices, Azure OpenAI / LLM services,
+            MongoDB, PostgreSQL, and containerized Docker runtimes.
+          business_impact: >
+            Automated price sensitivity estimation across thousands of spare parts, slashed pricing scenario analysis
+            time from days of manual modeling to minutes via conversational AI, and prevented suboptimal price hikes
+            via confidence-aware financial impact scoring.
+
+        architecture_and_workflow:
+          step_1_historical_panel_engineering: >
+            Aggregated and cleaned longitudinal transactional records into a standardized panel dataset at Part ID × Month
+            level, integrating primary/secondary sales volumes, list MRP, realized invoice prices, bill-of-materials costs,
+            competitor price benchmark indices, active vehicle population, and dealer inventory ratios.
+          step_2_feature_engineering_and_log_transforms: >
+            Engineered econometric log-log variables (ln(Qty), ln(Price)) for direct constant-elasticity interpretation,
+            rolling demand averages, price revision event indicator flags, inventory-to-sales ratios, and categorical
+            product hierarchies.
+          step_3_fixed_effects_panel_regression: >
+            Estimated baseline econometric panel regression with entity (part-level) and time fixed effects:
+            ln(Qty) = β0 + β1*ln(Price) + β2*Competition + Seasonality + Part_FE + Time_FE, controlling for unobserved
+            time-invariant part heterogeneity, macro trends, and seasonal automotive demand patterns.
+          step_4_causal_inference_and_endogeneity: >
+            Addressed price endogeneity (confounding where prices are systematically increased during periods of surging demand
+            or inflationary cost spikes) by implementing Difference-in-Differences (DiD) around historical price revision
+            shocks and Two-Stage Least Squares (2SLS) Instrumental Variable regression using manufacturing input costs as an instrument.
+          step_5_heterogeneous_treatment_effects: >
+            Advanced beyond pooled elasticities by training Microsoft EconML Causal Forests to discover non-linear Heterogeneous
+            Treatment Effects (HTE) across individual SKUs and part categories, producing SKU-specific price elasticities
+            paired with rigorous statistical confidence intervals.
+          step_6_multi_scenario_simulation_engine: >
+            Constructed a deterministic financial simulation engine that takes candidate price revisions (e.g., +8%),
+            applies part-level causal elasticity, and projects counterfactual volume changes, top-line revenue shifts,
+            gross margin expansion, and bottom-line profit deltas.
+          step_7_agentic_ai_orchestration: >
+            Engineered an Agentic AI assistant (LangGraph + Azure OpenAI) with specialized tool calling: Planner Agent
+            parses business queries, Data Retrieval Agent queries transactional histories, Elasticity Agent invokes trained
+            EconML models, Simulation Tool executes financial projections, and Explanation Agent generates executive summaries.
+          step_8_composite_impact_scoring: >
+            Formulated a multi-factor 0–100 Pricing Impact Score blending margin improvement, volume risk, revenue volatility,
+            elasticity confidence intervals, and historical back-test accuracy to deliver automated "Proceed" vs. "High Risk"
+            governance recommendations.
+
+        tech_stack:
+          causal_and_econometrics: ["Microsoft EconML", "Causal Forest", "Fixed Effects Panel Regression", "Difference-in-Differences (DiD)", "Instrumental Variables (2SLS)", "Heterogeneous Treatment Effects (HTE)"]
+          machine_learning_and_analytics: ["Python", "Pandas", "NumPy", "Scikit-Learn", "XGBoost", "Log-Log Elasticity Modeling", "Confidence Interval Estimation"]
+          agentic_ai_and_llms: ["Azure OpenAI", "LangGraph", "Tool Calling / Function Calling", "Multi-Agent System (Planner, Elasticity, Simulator, Explainer)"]
+          backend_and_api: ["FastAPI", "Uvicorn", "REST APIs", "Docker"]
+          databases_and_persistence: ["PostgreSQL", "MongoDB"]
+
+        challenges_and_solutions:
+          - challenge: "Endogeneity bias producing counterintuitive positive price elasticity due to non-random price hikes during demand peaks."
+            solution: "Implemented Two-Stage Least Squares (2SLS) instrumental variable regression using manufacturing bill-of-materials costs as an instrument, alongside Difference-in-Differences around historical MRP event windows to isolate true causal demand response."
+          - challenge: "Extreme elasticity heterogeneity across high-frequency consumables (filters, brake pads) versus slow-moving structural components."
+            solution: "Replaced aggregate elasticity estimates with Microsoft EconML Causal Forests, generating SKU-level heterogeneous treatment effects and confidence bounds to prevent over-optimistic price adjustments on sensitive parts."
+          - challenge: "Bridging the gap between complex econometric outputs and non-technical business decision-makers."
+            solution: "Developed an Agentic AI reasoning layer with LangGraph that converts complex statistical distributions and elasticity estimates into a 0–100 composite Pricing Impact Score and plain-language executive rationale."
+
+        bullet_bank_by_archetype:
+          data_scientist:
+            - "Engineered an end-to-end econometric and causal pricing platform for automotive spare parts, combining Fixed Effects Panel Regression, 2SLS Instrumental Variables, and Difference-in-Differences to eliminate endogeneity and isolate true price elasticity."
+            - "Trained Microsoft EconML Causal Forest models to estimate Heterogeneous Treatment Effects (HTE), producing SKU-specific demand elasticities and confidence intervals across thousands of automotive components."
+            - "Constructed a multi-scenario financial simulation engine modeling counterfactual demand shifts, revenue deltas, and gross margin expansion for candidate MRP revisions, shrinking pricing review cycles from days to minutes."
+          agentic_ai_engineer:
+            - "Architected a multi-agent decision support system using LangGraph and Azure OpenAI, orchestrating Planner, Data Retrieval, EconML Elasticity, Simulation, and Explanation agents via structured tool calling."
+            - "Implemented natural language query interfaces enabling finance leaders to test hypothetical price changes (e.g., '+8% MRP') and receive validated causal impact simulations with zero code or SQL."
+            - "Formulated an automated narrative explanation engine that translates mathematical elasticity distributions, confidence intervals, and revenue tradeoffs into executive-ready business recommendations."
+          finance_and_pricing_analyst:
+            - "Designed a proprietary 0–100 composite Pricing Impact Score factoring margin enhancement, revenue volatility, volume shrinkage, and model confidence to automate risk-weighted pricing governance."
+            - "Built robust panel data pipelines harmonizing primary/secondary sales, dealer stock levels, competitor price indices, and manufacturing costs across extensive parts catalogs."
+
+  # ----------------------------------------------------------------------------
+  # COMPANY 2: Vinculum Solutions Pvt. Ltd.
+  # ----------------------------------------------------------------------------
+  - company: "Vinculum Solutions Pvt. Ltd."
+    location: "Ahmedabad, Gujarat, India"
+    designation: "Software Engineer - Innovation Team"
+    employment_type: "Full-Time"
+    tenure:
+      start_date: "July 2022"
+      end_date: "May 2024"
+
+    company_overview: >
+      Global enterprise SaaS provider delivering Omnichannel Order Management,
+      Product Information Management (PIM), and Warehouse Management Systems for top e-commerce brands.
+
+    key_result_areas:
+      - kra_title: "Full-Lifecycle Architectural Ownership of AI Systems"
+        description: >
+          Spearheading the architectural design, algorithmic selection, model training, and microservice
+          integration of the enterprise Digital Asset Management (DAM) module within the PIM platform.
+        deliverables_and_ownership:
+          - "Owned end-to-end design across Python, FastAPI, and gRPC microservices handling 5M+ e-commerce assets."
+          - "Researched and integrated 8+ advanced deep learning capabilities (U2Net, ResNet, EfficientNet, CLIP, BLIP)."
+
+      - kra_title: "Pipeline Latency, High-Throughput & SLA Optimization"
+        description: >
+          Ensuring distributed media processing pipelines operate at high concurrency with low latency,
+          guaranteeing SLAs for top-tier retail merchants during high-volume sales events.
+        deliverables_and_ownership:
+          - "Engineered asynchronous distributed workers (Celery/Redis) with mixed-precision (FP16), slashing inference latency by 45%."
+          - "Architected high-throughput gRPC inter-service communication achieving sub-50ms sync latency."
+
+      - kra_title: "Data Persistence, Governance & Security"
+        description: >
+          Designing hybrid relational and vector storage strategies, access control policies, and compliance workflows.
+        deliverables_and_ownership:
+          - "Maintained ACID compliance on structured metadata in PostgreSQL while indexing multimodal embeddings in MongoDB."
+          - "Implemented RBAC policies, audit trails, and digital rights management across multi-tenant e-commerce environments."
+
+      - kra_title: "Cross-Functional Collaboration & Documentation"
+        description: >
+          Collaborating with frontend engineers, product managers, and enterprise clients; maintaining rigorous
+          documentation of APIs, models, and deployment configurations to enable team scalability.
+        deliverables_and_ownership:
+          - "Authored comprehensive OpenAPI/Swagger documentation, gRPC proto definitions, and model evaluation reports."
+
+    projects:
+      # PROJECT 2.1: AI-Powered Digital Asset Management (DAM)
+      - project_name: "Enterprise AI-Driven Digital Asset Management (DAM) Module"
+        project_id: "vinculum_dam_ai"
+        domains: ["computer_vision", "multimodal_ai", "deep_learning", "mlops", "data_science"]
+
+        executive_summary: >
+          Spearheaded the ground-up engineering of an AI-powered Digital Asset Management (DAM) module
+          embedded within Vinculum's enterprise Product Information Management (PIM) microservices architecture.
+          Integrated 8+ state-of-the-art vision models to automate cataloging, background segmentation,
+          quality assessment, multimodal tagging, and cross-channel asset distribution.
+
+        business_context:
+          problem_statement: >
+            Global e-commerce brands selling across Amazon, Shopify, and regional marketplaces faced manual
+            asset ingestion bottlenecks: poor image quality, non-compliant backgrounds, missing metadata tags,
+            and inconsistent resolution standards leading to listing rejections.
+          stakeholders_and_users: >
+            50+ enterprise e-commerce merchants, catalog managers, and external marketplace syndication partners.
+          scale_and_volume: >
+            Processed and indexed 5,000,000+ digital assets (images, banners, videos); handled high-concurrency
+            peak ingestion spikes during festival sales.
+          budget_and_resources: >
+            Deployed on AWS and GCP hybrid cloud environments; utilized Dockerized microservices and GPU instances
+            optimized for batch inference throughput.
+          business_impact: >
+            Reduced merchant catalog onboarding time from 3 days to under 4 hours; improved asset searchability
+            and marketplace approval rates to 98%+.
+
+        architecture_and_workflow:
+          step_1_api_gateway: "FastAPI and gRPC endpoints receive bulk media uploads from e-commerce PIM microservices."
+          step_2_media_pipeline: "Asynchronous image/video processing pipeline using OpenCV, Pillow, Sharp, and FFmpeg for normalization, format conversion, and watermarking."
+          step_3_deep_learning_inference: >
+            Modular model execution pipeline running:
+            - U2Net for automated salience detection and high-resolution background removal.
+            - ResNet-50 & EfficientNet for category classification and visual quality defect scoring.
+            - MultiModal CLIP & BLIP models for zero-shot visual question answering, semantic tagging, and natural language asset search.
+          step_4_persistence_layer: "PostgreSQL for ACID-compliant structured metadata + MongoDB for unstructured multimodal vector embeddings and asset schemas."
+          step_5_governance_and_distribution: "RBAC access control, digital rights management, audit trails, and multi-tenant marketplace CDN publishing."
+
+        tech_stack:
+          deep_learning_models: ["U2Net", "ResNet-50", "EfficientNet", "CLIP (OpenAI)", "BLIP (Salesforce)", "MobileNet"]
+          frameworks: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-learn"]
+          image_video_processing: ["OpenCV", "Pillow", "FFmpeg", "Sharp"]
+          backend_and_rpc: ["Python 3.9+", "FastAPI", "gRPC", "RESTful APIs", "Celery / Redis"]
+          databases: ["PostgreSQL", "MongoDB"]
+          cloud_and_devops: ["AWS (S3, EC2)", "GCP", "Docker", "Git"]
+
+        challenges_and_solutions:
+          - challenge: "High latency when running multiple sequential deep learning models on multi-megapixel product images."
+            solution: "Decoupled image transformations using asynchronous worker queues (Celery/Redis) and engineered batch inference pipelines with mixed-precision (FP16), cutting inference latency by 45%."
+          - challenge: "Synchronizing high-throughput media metadata across legacy PIM microservices."
+            solution: "Designed high-performance gRPC communication protocols alongside RESTful endpoints, achieving sub-50ms inter-service communication."
+
+        bullet_bank_by_archetype:
+          computer_vision_engineer:
+            - "Engineered end-to-end AI-powered DAM module in Python, FastAPI, and gRPC, deploying production deep learning models (U2Net, ResNet, EfficientNet) for automated background removal and quality inspection across 5M+ assets."
+            - "Integrated MultiModal CLIP and BLIP vision-language models for zero-shot image tagging and semantic visual search, building high-throughput pipelines with OpenCV, Pillow, and FFmpeg."
+            - "Trained and fine-tuned custom convolutional neural networks on proprietary e-commerce datasets using PyTorch and TensorFlow, boosting catalog classification accuracy to 94%."
+          llm_engineer:
+            - "Deployed MultiModal foundation models (CLIP, BLIP) for zero-shot image recognition and text-image embedding generation, enabling natural language semantic search over 5M+ catalog assets."
+            - "Engineered multimodal embedding indexing pipelines in MongoDB and vector storage, supporting cross-modal retrieval queries with sub-second response times."
+          data_scientist:
+            - "Designed hybrid persistence layer (PostgreSQL for structured metadata, MongoDB for asset embeddings), optimizing complex multi-filter catalog queries under high concurrent loads."
+            - "Analyzed visual quality degradation patterns across e-commerce product listings, developing automated scoring algorithms to prevent marketplace rejections."
+          mlops_ai_engineer:
+            - "Architected cloud-native microservices on AWS and GCP using FastAPI, gRPC, and Docker, handling real-time synchronization between PIM modules and distributed asset CDNs with 99.9% reliability."
+            - "Implemented strict RBAC policies, audit trails, and automated asset lifecycle workflows meeting enterprise client SLAs."
+
+      # PROJECT 2.2: Automated Multimodal Product Catalog Enrichment & Marketplace Form Syndication
+      - project_name: "Automated Multimodal Product Catalog Enrichment & Multi-Marketplace Form Filling Platform"
+        project_id: "vinculum_catalog_attribute_extraction"
+        domains: ["multimodal_ai", "computer_vision", "generative_ai", "vlm", "data_science", "cloud_engineering"]
+
+        executive_summary: >
+          Architected and deployed an end-to-end multimodal image-to-catalog automation engine on AWS to ingest
+          centralized product image repositories, extract fine-grained visual attributes via hybrid Vision-Language
+          Models (pretrained CLIP, BLIP) and Vision LLMs (GPT-4 Vision), and automatically populate 2–3 disparate
+          listing forms per marketplace per product, processing 500,000 (5 Lakh) images per tenant across 10 enterprise
+          tenants (5M total assets) in distributed batch mode.
+
+        business_context:
+          problem_statement: >
+            Enterprise e-commerce merchants listing products from their central portal to external marketplaces
+            (e.g., Amazon, Flipkart, Shopify) were forced to perform manual visual inspection of product images
+            to transcribe attributes (category, color, pattern, material, style) and fill 2–3 distinct listing forms
+            per marketplace per product. This manual workflow was labor-intensive, error-prone, and severely bottlenecked
+            catalog onboarding and cross-channel go-to-market speed.
+          stakeholders_and_users: >
+            10 enterprise retail and brand tenants, catalog operations teams, and multi-marketplace syndication managers.
+          scale_and_volume: >
+            500,000 (5 Lakh) product images processed per tenant across 10 enterprise tenants, delivering batch
+            attribute extraction and catalog form generation over 5,000,000+ total digital assets.
+          deployment_and_infrastructure: >
+            Deployed on AWS cloud infrastructure in scheduled and event-driven batch mode, leveraging AWS Batch,
+            Amazon S3 for centralized repository storage, Amazon SQS for task queues, and containerized Docker workers.
+          business_impact: >
+            Automated over 85% of manual catalog entry, compressed merchant marketplace onboarding turnaround
+            from days to minutes, and eliminated listing rejection penalties caused by inconsistent or missing marketplace form attributes.
+
+        architecture_and_workflow:
+          step_1_central_image_ingestion: "Central image repositories ingested from tenant portals into Amazon S3 buckets, partitioned by tenant and catalog category, and queued via Amazon SQS for distributed batch inference."
+          step_2_zero_shot_attribute_extraction: "Executed pretrained CLIP and BLIP vision-language models to perform high-throughput zero-shot visual tagging, text-image matching, and standard attribute extraction (base category, primary/secondary colors, patterns, and apparel silhouettes)."
+          step_3_vlm_specialized_attribute_routing: "Engineered an intelligent fallback and routing layer directing specialized, out-of-vocabulary categories (furniture, home decor, materials, structural finishes, interior styles) to Multimodal Vision LLMs (GPT-4 Vision) with structured JSON schema prompting."
+          step_4_multi_marketplace_form_mapping: "Designed schema-transformation adapters that normalized unified visual attributes and auto-populated 2–3 distinct listing and compliance forms per marketplace per product, tailored to marketplace-specific field validation rules."
+          step_5_batch_persistence_and_syndication: "Committed filled form payloads and validated catalog records to PostgreSQL/MongoDB and exported feeds to tenant marketplace syndication endpoints in automated batch cycles."
+
+        tech_stack:
+          multimodal_and_vision_models: ["OpenAI CLIP", "Salesforce BLIP", "GPT-4 Vision (OpenAI)", "Pretrained Vision-Language Encoders"]
+          frameworks_and_libraries: ["PyTorch", "Hugging Face Transformers", "OpenCV", "Pillow", "Pydantic"]
+          cloud_and_batch_infrastructure: ["AWS Batch", "Amazon S3", "Amazon EC2", "Amazon SQS", "Docker"]
+          backend_and_databases: ["Python 3.9+", "FastAPI", "PostgreSQL", "MongoDB", "JSON Schema"]
+
+        challenges_and_solutions:
+          - challenge: "Standard pretrained CLIP and BLIP models lacked domain-specific vocabulary and fine-grained visual comprehension for complex categories such as furniture, home decor, wood finishes, and material textures."
+            solution: "Constructed a two-tier hybrid inference architecture: routed high-volume standard attributes through fast, low-cost local CLIP/BLIP pipelines, while dynamically dispatching complex categories (furniture/decor) to GPT-4 Vision using structured Pydantic JSON schemas and domain-tailored visual prompts."
+          - challenge: "Diverse marketplaces enforced divergent attribute taxonomies, field constraints, and required filling 2–3 separate forms per product image with conflicting schema requirements."
+            solution: "Built a centralized schema transformation and validation engine that decoupled raw attribute extraction from marketplace representations, dynamically populating marketplace-specific forms with automated type-checking and constraint validation."
+          - challenge: "Processing 5 Lakh images per tenant across 10 tenants (5M images total) within batch processing windows without incurring prohibitive cloud compute and API costs."
+            solution: "Architected an asynchronous batch pipeline on AWS Batch and SQS with image pre-caching, dynamic tensor batching on GPU/CPU instances, and selective VLM invocation, maximizing throughput while minimizing third-party token consumption."
+
+        bullet_bank_by_archetype:
+          computer_vision_engineer:
+            - "Architected automated product image-to-catalog attribute extraction pipeline using pretrained CLIP and BLIP vision-language models alongside GPT-4 Vision, processing 5M+ images (500K/tenant across 10 tenants) on AWS Batch."
+            - "Implemented zero-shot visual tagging and multimodal feature alignment using CLIP and BLIP, extracting multi-class product attributes (color, pattern, silhouette) to auto-fill marketplace listing templates."
+            - "Integrated Vision LLMs (GPT-4V) for fine-grained visual attribute extraction across complex categories (furniture, home decor, materials), overcoming vocabulary limitations of off-the-shelf vision encoders."
+          llm_engineer:
+            - "Designed hybrid multimodal pipeline combining local Vision-Language Models (CLIP, BLIP) with Vision LLMs (GPT-4 Vision) to auto-generate structured product metadata from catalog images with 95%+ attribute extraction accuracy."
+            - "Engineered structured JSON schema prompting and validation workflows with GPT-4V to extract nuanced home decor and furniture attributes (finishes, materials, design styles) absent in standard vision classifiers."
+            - "Constructed automated catalog syndication engine mapping multimodal vision embeddings and LLM extractions into 2–3 marketplace-specific listing forms per product image across Amazon, Flipkart, and Shopify."
+          data_scientist:
+            - "Automated multi-marketplace catalog listing forms by developing a multimodal attribute extraction engine (CLIP, BLIP, GPT-Vision) across 500K images/tenant for 10 enterprise tenants on AWS."
+            - "Formulated hierarchical confidence scoring and schema-validation mechanisms to route complex product categories (furniture/decor) between zero-shot models and VLMs, cutting catalog onboarding cycle time by 80%."
+            - "Engineered data transformation and normalization pipelines converting unstructured visual attributes into validated tabular product feeds compliant with diverse e-commerce marketplace APIs."
+          mlops_ai_engineer:
+            - "Deployed scalable AWS cloud batch architecture (AWS Batch, S3, SQS, EC2) processing 5M+ e-commerce images (500K per tenant across 10 tenants) with automated failure retry queues and distributed worker pools."
+            - "Engineered cost-optimized hybrid batch inference pipeline combining self-hosted vision models (CLIP/BLIP) on GPU instances with rate-limited external VLM API calls (GPT-4 Vision) for specialized attribute enrichment."
+            - "Automated end-to-end multi-tenant catalog publishing pipelines, syncing enriched product metadata and populated forms into PostgreSQL and tenant PIM feeds under strict SLA guarantees."
+
+  # ----------------------------------------------------------------------------
+  # COMPANY 3: IHUB Drishti - IIT Jodhpur
+  # ----------------------------------------------------------------------------
+  - company: "IHUB Drishti - IIT Jodhpur"
+    location: "Jodhpur, Rajasthan, India"
+    designation: "Computer Vision Junior Research Fellow (JRF)"
+    employment_type: "Full-Time Research Fellowship"
+    tenure:
+      start_date: "December 2021"
+      end_date: "June 2022"
+
+    company_overview: >
+      Technology Innovation Hub at IIT Jodhpur funded by the Department of Science and
+      Technology (DST), Government of India, driving advanced R&D in Computer Vision,
+      Augmented Reality, and Industrial IoT.
+
+    key_result_areas:
+      - kra_title: "Computer Vision & Deep Learning Algorithmic R&D"
+        description: >
+          Formulating, training, and validating novel deep learning and computer vision architectures for
+          real-time in-process industrial metrology and anomaly detection.
+        deliverables_and_ownership:
+          - "Invented vision algorithms combining sub-pixel morphology and YOLO/ResNet-50 for non-contact shaft measurement."
+          - "Developed human-guided progressive learning framework utilizing EfficientNet-B0 transfer learning."
+
+      - kra_title: "Intellectual Property Creation & Research Publications"
+        description: >
+          Documenting algorithmic breakthroughs, securing intellectual property rights, and disseminating
+          findings through high-impact international manufacturing engineering conferences.
+        deliverables_and_ownership:
+          - "Authored and presented 2 peer-reviewed papers at ASME MSEC (Purdue & Rutgers Universities)."
+          - "Registered an official Government of India Copyright / Patent for tapered roller defect inspection."
+
+      - kra_title: "Shop-Floor Data Engineering & Hardware-Software Calibration"
+        description: >
+          Setting up industrial imaging rigs, calibrating optical systems against distortions, and generating
+          benchmark datasets across multi-case shop-floor deployments.
+        deliverables_and_ownership:
+          - "Implemented checkerboard calibration countering cat-eye reflections in reflective machined metal parts."
+          - "Curated and labeled industrial defect datasets across 5 shop-floor manufacturing case studies."
+
+    projects:
+      # PROJECT 3.1: In-Process Dimension Measurement System
+      - project_name: "Vision-Based In-Process High-Precision Shaft Dimension Measurement"
+        project_id: "drishti_dimension_measurement"
+        domains: ["computer_vision", "deep_learning", "image_processing", "industrial_iot"]
+
+        executive_summary: >
+          Developed an automated non-contact, optical in-process dimension measurement system for cylindrical
+          machined components, replacing manual vernier/micrometer calipers in harsh shop-floor environments.
+
+        technical_details:
+          camera_calibration: "Implemented checkerboard calibration algorithms to mathematically counteract optical distortion and cat-eye reflection artifacts."
+          detection_and_localization: "Utilized YOLO framework coupled with a ResNet-50 feature extractor backbone for real-time workpiece localization."
+          segmentation_and_measurement: "Devised HSL color-space filtering and morphological boundary erosion/dilation, feeding into a proprietary incremental diameter evaluation algorithm achieving sub-millimeter precision."
+          tech_stack: ["Python", "OpenCV", "PyTorch", "ResNet-50", "YOLO", "NumPy", "SciPy"]
+
+        bullet_bank_by_archetype:
+          computer_vision_engineer:
+            - "Developed vision-based in-process dimension measurement system for cylindrical components, implementing checkerboard calibration for cat-eye correction, YOLO/ResNet-50 localization, and morphological boundary segmentation."
+            - "Engineered an incremental diameter evaluation algorithm utilizing sub-pixel edge detection, achieving sub-millimeter measurement precision on industrial lathe setups."
+          data_scientist:
+            - "Applied computer vision algorithms and statistical error modeling to calibrate optical measurement variance against physical CMM (Coordinate Measuring Machine) benchmarks."
+
+      # PROJECT 3.2: Machine Setup Abnormality Detection
+      - project_name: "YOLO-Powered Machine Setup Abnormality Detection (ASME MSEC Published)"
+        project_id: "drishti_setup_abnormality"
+        domains: ["computer_vision", "deep_learning", "object_detection", "smart_manufacturing"]
+
+        executive_summary: >
+          Designed a real-time computer vision system to detect tooling, fixturing, and workpiece setup
+          abnormalities in CNC milling and machining centers before machining cycles commence.
+          Published and presented at ASME MSEC (Purdue University & Rutgers University).
+
+        technical_details:
+          methodology: "Engineered and trained custom YOLOv2 object detection architectures across 5 distinct industrial shop-floor case studies."
+          deliverable: "Automated early warning system flagging misplaced clamps, missing fixtures, or misaligned workpieces to prevent catastrophic spindle crashes."
+          tech_stack: ["Python", "YOLOv2", "OpenCV", "TensorFlow / PyTorch", "LabelImg"]
+
+        bullet_bank_by_archetype:
+          computer_vision_engineer:
+            - "Engineered YOLO-based object detection system across 5 industrial shop-floor case studies, training custom models to detect CNC machine setup abnormalities and prevent mechanical collisions."
+            - "Published 2 peer-reviewed research papers in ASME MSEC (Purdue & Rutgers) detailing vision-based anomaly detection algorithms for smart manufacturing."
+          data_scientist:
+            - "Generated curated industrial image datasets with extensive data augmentation, mitigating class imbalance to achieve high mean Average Precision (mAP) on rare setup anomalies."
+
+      # PROJECT 3.3: Progressive Learning for Defect Detection (Patent Registered)
+      - project_name: "Human-Guided Progressive Learning for Surface Defect Detection"
+        project_id: "drishti_progressive_learning"
+        domains: ["computer_vision", "deep_learning", "active_learning", "transfer_learning"]
+
+        executive_summary: >
+          Pioneered an active-learning framework enabling vision inspection CNNs to adaptively learn
+          unseen industrial surface defect variations over time with minimal human intervention.
+          Led to a registered Government of India Copyright / Patent.
+
+        technical_details:
+          methodology: "Fine-tuned EfficientNet-B0 via transfer learning on tapered roller bearing surfaces. Designed an automated buffer mechanism accumulating misclassified samples upon confidence threshold triggers, prompting human expert verification and triggering scheduled incremental model retraining."
+          tech_stack: ["PyTorch", "EfficientNet-B0", "Transfer Learning", "OpenCV", "Active Learning UI"]
+
+        bullet_bank_by_archetype:
+          computer_vision_engineer:
+            - "Pioneered human-guided progressive learning framework utilizing EfficientNet-B0 transfer learning for tapered roller surface defect detection, awarded a registered Government Copyright."
+            - "Formulated active learning feedback loop accumulating misclassified samples beyond expert thresholds, systematically retraining models to maintain high accuracy on unseen surface defects."
+          data_scientist:
+            - "Engineered confidence-gated active learning pipeline that reduced manual labeling overhead by 60% while progressively boosting model generalization on production defect classes."
+
+  # ----------------------------------------------------------------------------
+  # INTERNSHIP: V.E. Commercial Vehicles Ltd. (Eicher - Volvo JV)
+  # ----------------------------------------------------------------------------
+  - company: "V.E. Commercial Vehicles Ltd."
+    location: "Thane, Maharashtra, India"
+    designation: "Quality Control Engineering Intern"
+    employment_type: "Internship"
+    tenure:
+      start_date: "June 2018"
+      end_date: "July 2018"
+    summary: >
+      Industrial internship in gear manufacturing quality assurance. Executed statistical analysis of
+      measurement variance in surface roughness testers, identifying calibration drifts across shop-floor instruments.
+    key_result_areas:
+      - kra_title: "Statistical Metrology & Measurement Systems Analysis (MSA)"
+        description: >
+          Evaluating surface roughness tester repeatability and calibration drift across gear manufacturing lines.
+        deliverables_and_ownership:
+          - "Conducted statistical error modeling on mechanical inspection gages, presenting variance reports to quality leads."
+    bullet_bank_by_archetype:
+      data_scientist:
+        - "Executed statistical analysis of measurement variance in gear surface roughness inspection, identifying instrument calibration drifts across manufacturing lines."
+
+# ==============================================================================
+# 2. EDUCATION & ACADEMIC CREDENTIALS
+# ==============================================================================
+education:
+  - institution: "Indian Institute of Technology Jodhpur"
+    degree: "Master of Technology (M.Tech)"
+    field_of_study: "Advanced Manufacturing and Design (Specialization in AI & Vision Systems)"
+    dates: "September 2020 - June 2022"
+    cgpa: "8.2 / 10.0"
+    highlights:
+      - "Thesis on Vision-Based In-line Inspection and Deep Learning Defect Detection Systems."
+      - "Appointed Football Captain for the IIT Jodhpur Alumni team in 2022."
+
+  - institution: "A. P. Shah Institute of Technology, Mumbai University"
+    degree: "Bachelor of Engineering (B.E.)"
+    field_of_study: "Mechanical Engineering"
+    dates: "August 2015 - July 2019"
+    cgpa: "7.29 / 10.0"
+
+# ==============================================================================
+# 3. RESEARCH PUBLICATIONS & PATENTS
+# ==============================================================================
+research_and_publications:
+  patents:
+    - title: "Vision-based In-line Surface Defect Detection Algorithm and User Interface for Tapered Roller Inspection System"
+      type: "Copyright / Patent Registration"
+      registration_date: "December 2023"
+      status: "Registered / Granted"
+      url: "https://www.researchgate.net/publication/376681360_Vision-based_In-line_Surface_Defect_Detection_Algorithm_and_User_Interface_for_Tapered_Roller_Inspection_System"
+      relevance_tags: [cv, defect_detection, deep_learning, industrial_ai]
+
+  peer_reviewed_conferences:
+    - title: "Machine Setup Abnormality Detection Using Machine Vision and Deep Learning"
+      conference: "ASME 17th International Manufacturing Science and Engineering Conference (MSEC 2022)"
+      location: "Purdue University, West Lafayette, Indiana, USA"
+      date: "June 2022"
+      doi: "https://doi.org/10.1115/MSEC2022-85519"
+      relevance_tags: [cv, deep_learning, object_detection, anomaly_detection]
+
+    - title: "Utilizing Vision-Based Object Detection Algorithms in Recognizing Uncommon Operating Conditions for CNC Milling Machine"
+      conference: "ASME 18th International Manufacturing Science and Engineering Conference (MSEC 2023)"
+      location: "Rutgers University, New Brunswick, New Jersey, USA"
+      date: "July 2023"
+      doi: "https://doi.org/10.1115/MSEC2023-105311"
+      relevance_tags: [cv, yolo, deep_learning, smart_manufacturing]
+
+  manuscripts_under_review:
+    - title: "Vision-based In-process Shaft Diameter Measurement System Using Deep Learning and Image Morphology"
+      status: "Under Scrutiny / Review"
+      relevance_tags: [cv, image_processing, dimension_measurement]
+    - title: "Human-guided Progressive Learning Approach for Enhancing Performance of Vision-based Surface Defect Detection Systems"
+      status: "Under Scrutiny / Review"
+      relevance_tags: [cv, active_learning, transfer_learning]
+
+# ==============================================================================
+# 4. MASTER TECHNICAL SKILLS INVENTORY (Categorized for Dynamic Reordering)
+# ==============================================================================
+technical_skills:
+  programming_languages:
+    primary: ["Python", "SQL", "C++"]
+    secondary: ["MATLAB", "Shell Scripting"]
+
+  llm_and_generative_ai:
+    - "Retrieval-Augmented Generation (RAG)"
+    - "LangGraph & Agentic AI Workflows"
+    - "LangChain"
+    - "LlamaIndex"
+    - "Tool Calling / Function Calling"
+    - "Vector Databases (ChromaDB, Milvus, Qdrant, pgvector)"
+    - "Semantic Search & Cross-Encoder Reranking"
+    - "Prompt Engineering"
+    - "MultiModal LLMs & Vision-Language Models (CLIP, BLIP, GPT-4 Vision)"
+    - "Hugging Face Transformers"
+
+  computer_vision_and_image_processing:
+    - "OpenCV"
+    - "Object Detection (YOLOv2/v5/v8, Faster R-CNN)"
+    - "Image Segmentation (U2Net, Mask R-CNN)"
+    - "Deep Feature Extractors (ResNet-50, EfficientNet, MobileNet)"
+    - "Camera Calibration & Sub-Pixel Morphology"
+    - "Pillow"
+    - "FFmpeg"
+    - "Sharp"
+
+  machine_learning_and_data_science:
+    - "PyTorch"
+    - "TensorFlow"
+    - "Scikit-Learn"
+    - "XGBoost"
+    - "Temporal Convolutional Networks (TCN)"
+    - "Symbolic Regression (PySR) & SINDy"
+    - "Causal Inference (Microsoft EconML, Causal Forests)"
+    - "Econometrics (Fixed Effects Panel Regression, DiD, 2SLS)"
+    - "Dynamic Pricing & Demand Elasticity Modeling"
+    - "NumPy"
+    - "Pandas"
+    - "SciPy"
+    - "Matplotlib / Seaborn"
+    - "Active Learning & Transfer Learning"
+    - "Statistical Modeling & Hypothesis Testing"
+
+  cloud_and_mlops:
+    - "Google Cloud Platform (GCP - Cloud Functions, Cloud Storage, BigQuery)"
+    - "Amazon Web Services (AWS - S3, EC2, Batch, SQS)"
+    - "Docker & Containerization"
+    - "Git / GitHub"
+    - "Serverless Architecture"
+    - "CI/CD Pipelines"
+
+  apis_and_databases:
+    - "FastAPI"
+    - "gRPC Microservices"
+    - "RESTful APIs"
+    - "PostgreSQL"
+    - "MongoDB"
+    - "MySQL"
+
+  cae_and_simulation_ai:
+    - "Physics AI (Altair)"
+    - "Sim AI (Ansys)"
+    - "3D Point Cloud & Geometric Deep Learning"
+    - "Vehicle Dynamics & Physics-Informed ML (Pacejka Magic Formula)"
+    - "Virtual Sensing & Wheel Force Transducers (WFT)"
+
+# ==============================================================================
+# 5. EXTRACURRICULAR ACTIVITIES & LEADERSHIP
+# ==============================================================================
+extracurriculars:
+  - activity: "Football"
+    details:
+      - "Captain of IIT Jodhpur Alumni Football Team (2022)."
+      - "Represented Cosmos FC in the Mumbai Division Football Association (MDFA) League (2019-2020)."
+      - "Consistently represented school and college teams across state and inter-collegiate tournaments."
+  - hobbies:
+    - "Hiking"
+    - "Chess"
+    - "Table Tennis"

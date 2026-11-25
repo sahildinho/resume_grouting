@@ -1,0 +1,40 @@
+Project Role : Large Language Model Architect
+Project Role Description :Project Role : Large Language Model Architect
+Project Role Description : Architect large language models (LLM) that can process and generate natural language. Design neural network parameters, trained on large quantities of unlabeled text data.
+Must have skills : Large Language Models (LLMs)
+Good to have skills : NA
+Minimum 4 year(s) of experience is required
+Educational Qualification : 15 years full time education
+
+Summary:
+As a Large Language Model Architect, you will engage in the innovative design and architecture of large language models that are capable of processing and generating natural language. Your typical day will involve collaborating with cross-functional teams to define model specifications, experimenting with neural network architectures, and analyzing the performance of models trained on extensive datasets. You will also be responsible for troubleshooting and optimizing model performance, ensuring that the solutions you develop meet the highest standards of quality and efficiency. Your role will be pivotal in advancing the capabilities of natural language processing technologies within the organization.
+
+Roles & Responsibilities:
+- Expected to be an SME.
+- Collaborate and manage the team to perform.
+- Responsible for team decisions.
+- Engage with multiple teams and contribute on key decisions.
+- Provide solutions to problems for their immediate team and across multiple teams.
+- Mentor junior team members to enhance their skills and knowledge in large language model architecture.
+- Continuously evaluate and implement best practices in model design and training methodologies.
+
+Professional & Technical Skills:
+- Must To Have Skills: Proficiency in Large Language Models.
+- Strong understanding of neural network architectures and their applications in natural language processing.
+- Experience with large-scale data processing and management techniques.
+- Familiarity with programming languages such as Python and frameworks like TensorFlow or PyTorch.
+- Ability to analyze and interpret complex datasets to inform model design and improvements.
+
+Additional Information:
+- The candidate should have minimum 5 years of experience in Large Language Models.
+- This position is based at our Bengaluru office.
+- A 15 years full time education is required.
+
+
+Management Level : 9
+Work Experience : >=12 Months
+Work location : Bengaluru
+Must Have Skills : Large Language Models (LLMs)
+Good To Have Skills :
+Job Requirements :
+15 years full time education

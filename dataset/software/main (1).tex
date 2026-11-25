@@ -1,0 +1,352 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{0pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    {\Huge \scshape Sahil Choudhari} \\ \vspace{1pt}
+    \vspace{4pt}
+    \small \raisebox{-0.1\height}\faPhone\ 8655445155 ~ \href{mailto:choudhari.1@iitj.ac.in}{\raisebox{-0.2\height}\faEnvelope\  \underline{choudhari.1@alumni.iitj.ac.in}} ~ 
+    \href{https://linkedin.com/in/sahil-choudhari-18a977179}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/sahil-choudhari-18a977179}}  ~
+    \vspace{5pt}
+    \href{https://www.researchgate.net/profile/Sahil-Choudhari-2}{\raisebox{-0.2\height}\faResearchgate
+    \underline{Researchgate/profile/Sahil-Choudhari-2}} ~
+    % \href{https://github.com/sahildinho}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/sahildinho}}
+   
+    
+    \vspace{-1pt}
+\end{center}
+\vspace{-12pt}
+
+%------------Summary-----------
+\section{Summary}
+AI Engineer specializing in Computer Vision and Deep Learning, with 3+ years of experience building and deploying large‑scale perception systems using image and 3D point‑cloud datasets across E‑commerce, SaaS, and Automotive domains. M.Tech graduate from IIT Jodhpur with a publication record and a copyright in vision‑based inspection systems. Designed point‑based 3D deep learning frameworks that accelerated CAE simulation workflows by 12x and implemented high‑throughput vision pipelines on GCP and AWS. Skilled in developing and deploying scalable CV and DL models (U2Net, ResNet50, CLIP, EfficientNet, MobileNet, YOLOv6, PointNet) with TensorFlow, PyTorch, and OpenCV, integrating them into production APIs for real‑world applications.
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Mahindra \& Mahindra}{July 2024 - Present}
+      {Senior Engineer - Methods Team}{Mahindra Research Valley, Chennai}
+      \resumeItemListStart
+        \resumeItem{Engineered non-parametric 3D deep learning surrogate model from point cloud inputs to predict critical stress, displacement, and FEA parameters, delivering 85\% correlation accuracy that provided engineering teams with reliable directional guidance over traditional simulations.}
+        \resumeItem{Achieved 12x reduction in CAE simulation cycle times by deploying the production-ready AI model, bypassing computationally intensive finite element solvers while maintaining physics-informed prediction fidelity for rapid design iteration.}
+        \resumeItem{Implemented shape-based AI models to define design spaces and engineered confidence score metrics for 3D deep learning predictions, enhancing reliability of simulation parameters across complex geometries.}
+        \resumeItem{Architected end-to-end Material Test Certificate comparison webapp on GCP, handling 1000+ PDFs weekly with OCR-powered data extraction, PostgreSQL database, Cloud Storage, Cloud Functions, and React frontend.}
+        \resumeItem{Implemented scalable serverless architecture ensuring 99.9\% uptime and automated certificate validation, streamlining quality assurance processes and reducing manual verification efforts across engineering teams.}
+        
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Vinculum Solution Pvt. Ltd. }{July 2022 - May 2024}
+      {Software Engineer - Innovation Team}{Ahemdabad}
+      \resumeItemListStart
+        \resumeItem{Responsible for end-to-end development of the DAM module in Python, FastAPI, and gRPC, researching and implementing all features while integrating state-of-the-art AI algorithms into 8+ advanced capabilities for optimal digital asset management in a microservices PIM architecture.}
+        \resumeItem{Developed and trained custom deep learning models with TensorFlow and PyTorch on proprietary in-house datasets, deploying production-ready U2Net, ResNet, and EfficientNet architectures alongside open-source implementations.}
+        \resumeItem{Leveraged MultiModal CLIP and BLIP models for sophisticated image recognition features, building robust image processing pipelines with OpenCV, Pillow, FFmpeg, and Sharp to enforce cross-platform quality standards.}
+        \resumeItem{Architected scalable cloud-native APIs on AWS and GCP, enabling seamless, high-throughput integration with PIM microservices via gRPC protocols and RESTful endpoints for real-time asset synchronization across e-commerce platforms.}
+        \resumeItem{Designed hybrid data persistence layer using PostgreSQL for structured metadata and MongoDB for unstructured asset embeddings, ensuring ACID compliance and efficient querying under high loads.}
+        \resumeItem{Proactively maintained, organized, and governed digital asset repositories, implementing RBAC policies and audit trails that streamlined distribution workflows and ensured compliance with e-commerce client SLAs.}
+        \resumeItem{Collaborated cross-functionally to align DAM capabilities with enterprise requirements, delivering comprehensive asset lifecycle management that supported diverse client ecosystems.}
+        \resumeItem{Documented APIs, models, and pipelines rigorously, facilitating team scalability and enabling rapid iteration on AI-enhanced features.}
+        
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {IHUB Drishti- IIT Jodhpur}{December 2021 - June 2022}
+      {Computer Vision Junior Research Fellow}{Jodhpur}
+      \resumeItemListStart
+        \resumeItem{Contributed to vision-based in-process dimension measurement system for cylindrical components, implementing checkerboard calibration for cat-eye effect correction, YOLO-powered workpiece localization with ResNet-50 backbone, HSL filtering, morphological operations, and an incremental diameter evaluation algorithm.}
+        \resumeItem{Engineered YOLOv2-based object detection system for machine setup abnormality detection across five shop-floor case studies, training models on labeled datasets to accurately segregate and identify elements of interest from diverse industrial images.}
+        \resumeItem{Pioneered a human-guided progressive learning framework for CNN defect detection using EfficientNet-B0 via transfer learning on tapered roller surfaces, systematically accumulating and retraining on misclassified data upon expert thresholds to adapt to unseen variations.}
+    \resumeItemListEnd
+    
+    % \resumeSubheading
+    %   {V.E. Commercial Vehicles Ltd.}{June 2018 - July 2018}
+    %   {Intern in quality control department}{Thane}
+    %   \resumeItemListStart
+    %     \resumeItem{A fortnight Internship was accomplished to get acquainted with the present industrial practices and technologies concerning gears manufacturing}
+    %     \resumeItem{I had carried out a statistical analysis of errors in surface roughness measurement.}
+    % \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Indian Institute of Technology Jodhpur}{September 2020 - June 2022}
+      {Master of Technology in Advanced Manufacturing and Design}{8.2 CGPA}
+     \resumeSubheading
+      {A. P. Shah Institute of Technology, Thane}{August 2015 - July 2019}
+      {Bachelor of Engineering in Mechanical Engineering}{7.29 CGPA}
+     % \resumeSubheading
+     %  {Shubhum Raje Junior College, Thane}{August 2014 - July 2015}
+     %  {H.S.C.}{78\%}
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------INVOLVEMENT---------------
+\section{Research Publication}
+    \resumeSubHeadingListStart
+        \resumeSubheading{ASME 17th International Manufacturing Science and Engineering Conference.}{June 27, 2022}{Purdue University}{  Indiana, USA.}
+            \resumeItemListStart
+                \resumeItem{\href{https://doi.org/10.1115/MSEC2023-105311}{"Machine Setup Abnormality Detection Using Machine Vision and Deep Learning." Volume 1: Additive Manufacturing; Biomanufacturing; Life Cycle Engineering; Manufacturing Equipment and Automation; Nano/Micro/Meso Manufacturing. West Lafayette, Indiana, USA.}}
+                
+            \resumeItemListEnd
+        \resumeSubheading{ASME 18th International Manufacturing Science and Engineering Conference.}{July, 2023}{Rutgers University}{ New Jersey, USA.}
+            \resumeItemListStart
+                \resumeItem{\href{https://doi.org/10.1115/MSEC2023-105311}{"Utilizing Vision-Based Object Detection Algorithms in Recognizing Uncommon Operating Conditions for CNC Milling Machine."  Volume 2: Manufacturing Equipment and Automation; Manufacturing Processes; Manufacturing Systems; Nano/Micro/Meso Manufacturing; Quality and Reliability. New Brunswick, New Jersey, USA.}}
+            \resumeItemListEnd
+        \resumeSubheading{Research papers under scrutiny}{October 2023}{}{}
+            \vspace{-16pt}
+            \resumeItemListStart
+                \resumeItem{Vision-based In-process Shaft Diameter Measurement System Using Deep Learning and Image Morphology.}
+                \resumeItem{Human-guided Progressive Learning Approach for Enhancing Performance of Vision-based Surface Defect Detection Systems.}
+            \resumeItemListEnd
+        \resumeSubheading{Patent: Copyright Registration}{December 2023}{}{}
+            \vspace{-16pt}
+            \resumeItemListStart
+                \resumeItem{\href{https://www.researchgate.net/publication/376681360_Vision-based_In-line_Surface_Defect_Detection_Algorithm_and_User_Interface_for_Tapered_Roller_Inspection_System}{Title: Vision-based In-line Surface Defect Detection Algorithm and User Interface for Tapered Roller Inspection System}}
+    \resumeSubHeadingListEnd
+
+
+% %-----------PROJECTS-----------
+% \section{Projects}
+%     \vspace{-5pt}
+%     \resumeSubHeadingListStart
+%       \resumeProjectHeading
+%           {\textbf{Dimension Measurement System Using Deep learning } \emph{}}{January 2021 - June 2022}
+%           \resumeItemListStart
+%             \resumeItem{The project aims to vision-based in-process dimension measurement system for cylindrical components. It addresses the challenge of in-process diameter measurement using image morphology and deep learning.}
+%             \resumeItem{Methodology of developing system involved image acquisition and prepossessing against cat-eye effect using checkerboard calibration. Workpiece localization was achieved with YOLO algorithm and ResNet-50 as base network.}
+%             \resumeItem{HSL filter along with a sequence of image morphological operations were used for workpiece segmentation. An incremental algorithm was used to evaluate the diameter measurement of the workpiece.}
+%           \resumeItemListEnd
+%           \vspace{-13pt}
+%       \resumeProjectHeading
+%           {\textbf{Machine Setup Abnormality Detection}  \emph{}}{December 2020 - March 2021}
+%           \resumeItemListStart
+%             \resumeItem{In this project object detection algorithm based on YOLO-v2 is implemented to detect and segregate the elements of interest from different shop-floor images. The algorithm is trained using labeled image datasets generated for several machine setup abnormalities. The developed system was implemented to detect machine setup abnormalities by considering five different case studies.}
+            
+%           \resumeItemListEnd 
+%           \vspace{-13pt}
+%           \resumeProjectHeading
+%           {\textbf{Progressive Learning Approach for Enhancing Deep Learning Models}  \emph{}}{December 2021 - June 2022}
+%           \resumeItemListStart
+%             \resumeItem{This project proposes a human-guided progressive learning approach that systematically imparts capabilities in the CNN powered vision-based defect detection system to accommodate random changes associated with previously unseen data.}
+%             \resumeItem{The pre-trained Efficientnet-b0 has been utilized to develop the surface defect detection model for tapered roller through a transfer learning approach.}
+%             \resumeItem{The algorithm accumulates misclassified data until it reaches a predefined threshold or indication from the expert, then merges it with original datasets for model re-training.}
+%           \resumeItemListEnd 
+%     \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+
+
+%%------RELEVANT COURSEWORK-------
+%\section{Relevant Coursework}
+%    %\resumeSubHeadingListStart
+%        \begin{multicols}{4}
+%            \begin{itemize}[itemsep=-5pt, parsep=3pt]
+%                \item\small Data Structures
+%                \item Software Methodology
+%                \item Algorithms Analysis
+%                \item Database Management
+%                \item Artificial Intelligence
+%                \item Internet Technology
+%                \item Systems Programming
+%                \item Computer Architecture
+%            \end{itemize}
+%        \end{multicols}
+%        \vspace*{2.0\multicolsep}
+%    %\resumeSubHeadingListEnd
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: Python, C++, SQL, MATLAB} \\
+     \vspace{2pt}
+     \textbf{Data Analysis Frameworks} {: NumPy, Pandas, Matplotlib, Scipy} \\
+     \vspace{2pt}
+     \textbf{Deep Learning Frameworks}{: Tensorflow, Pytorch, Hugging Face Transformers, Scikit-learn} \\
+     \vspace{2pt}
+     \textbf{Image Processing Frameworks}{: OpenCV, Pillow, FFMpeg, Sharp} \\
+     \vspace{2pt}
+     \textbf{CAE AI Tools}{: Phyics AI (Altair), Sim AI (Ansys)} \\
+     \vspace{2pt}
+     \textbf{API Frameworks}{: FastAPI, gRPC, Django} \\
+     \vspace{2pt}
+     \textbf{Database}{: Postgresql, MongoDB, MySQL} \\
+     \vspace{2pt}
+     \textbf{Cloud Platforms}{: AWS, GCP} \\
+     \vspace{2pt}
+     \textbf{Developer Tools}{: GitHub, Anaconda, Docker} \\
+     \vspace{2pt}
+     \textbf{Languages}{: English, Hindi, Marathi} \\
+    }}
+ \end{itemize}
+ \vspace{-10pt}
+ 
+%-----------Extra-Curricular Activities-----------
+\section{Extra-Curricular Activities}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Football} \emph{}}{}
+          \resumeItemListStart
+            \resumeItem{Throughout my academic journey, I have consistently actively participated and represented teams at both the school and college levels. Notably, I had the honor of serving as the Football Captain for the IIT Jodhpur Alumni team in 2022.}
+            \resumeItem{Represented Cosmos FC in the Mumbai Division Football Association league matches during the 2019-2020 season.}
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{Other interest} \emph{}}{}
+          \resumeItemListStart
+            \resumeItem{Hiking, Chess, Table Tennis}
+          \resumeItemListEnd
+          \vspace{-13pt}
+    \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+
+% %-----------INVOLVEMENT---------------
+% \section{Research Publication}
+%     \resumeSubHeadingListStart
+%         \resumeSubheading{ASME 17th International Manufacturing Science and Engineering Conference.}{June 27, 2022}{Purdue University}{  Indiana, USA.}
+%             \resumeItemListStart
+%                 \resumeItem{"Machine Setup Abnormality Detection Using Machine Vision and Deep Learning." Volume 1: Additive Manufacturing; Biomanufacturing; Life Cycle Engineering; Manufacturing Equipment and Automation; Nano/Micro/Meso Manufacturing. West Lafayette, Indiana, USA.}
+%                 \resumeItem{Paper No: MSEC2022-85519, V001T04A009; https://doi.org/10.1115/MSEC2022-85519}
+%             \resumeItemListEnd
+%         \resumeSubheading{ASME 18th International Manufacturing Science and Engineering Conference.}{July, 2023}{Rutgers University}{ New Jersey, USA.}
+%             \resumeItemListStart
+%                 \resumeItem{"Utilizing Vision-Based Object Detection Algorithms in Recognizing Uncommon Operating Conditions for CNC Milling Machine."  Volume 2: Manufacturing Equipment and Automation; Manufacturing Processes; Manufacturing Systems; Nano/Micro/Meso Manufacturing; Quality and Reliability. New Brunswick, New Jersey, USA.}
+%                 \resumeItem{Paper No: MSEC2023-105311, V002T05A007; https://doi.org/10.1115/MSEC2023-105311}
+%             \resumeItemListEnd
+%         \resumeSubheading{2 Research paper under scrutiny}{October 2023}{}{}
+%         \resumeSubheading{1 Design patent under scrutiny}{October 2023}{}{}
+%     \resumeSubHeadingListEnd
+
+
+\end{document}

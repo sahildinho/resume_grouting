@@ -1,0 +1,30 @@
+# Secrets & environment variables (never commit real API keys)
+.env
+.env.*
+!.env.example
+
+# Internal technical/planning docs (excluded from public repo)
+PHASE_1_AGENTS_AND_ORCHESTRATION.md
+PHASE_1_FEATURES.md
+PHASE_1_SCHEMAS_AND_TOOLS.md
+PHASE_1_WORKFLOW.md
+PROJECT_CONTEXT.md
+
+# Local session outputs & generated resumes
+runs/
+
+# Python & virtual environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# OS & editor files
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Copilot — Grounded &amp; Hypothetical Tailoring Studio</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Header & Stepper -->
+    <header class="topbar no-print">
+      <div class="topbar-left">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <div class="brand-text">
+            <span class="brand-title">Resume Copilot</span>
+            <span class="brand-sub" id="header-session-label">No active session</span>
+          </div>
+        </div>
+        <span class="mode-badge mode-grounded" id="header-mode-badge">Grounded Mode</span>
+      </div>
+
+      <nav class="stepper" aria-label="Pipeline Steps">
+        <button class="step-pill active" data-step="setup" id="step-btn-setup">
+          <span class="step-num">1</span>
+          <span class="step-label">Setup &amp; JD</span>
+        </button>
+        <span class="step-sep"></span>
+        <button class="step-pill" data-step="tailor" id="step-btn-tailor" disabled>
+          <span class="step-num">2</span>
+          <span class="step-label">Tailor &amp; ATS</span>
+        </button>
+        <span class="step-sep"></span>
+        <button class="step-pill" data-step="audit" id="step-btn-audit" disabled>
+          <span class="step-num">3</span>
+          <span class="step-label">Audit &amp; Gate</span>
+        </button>
+        <span class="step-sep"></span>
+        <button class="step-pill" data-step="study" id="step-btn-study" disabled>
+          <span class="step-num">4</span>
+          <span class="step-label">Study Plan &amp; Export</span>
+        </button>
+      </nav>
+
+      <div class="topbar-right">
+        <button class="btn btn-ghost btn-sm" id="btn-open-sessions" title="Saved Sessions">
+          <span>Sessions</span>
+          <span class="count-chip" id="sessions-count-chip">0</span>
+        </button>
+        <button class="btn btn-ghost btn-sm" id="btn-open-settings" title="Model &amp; API Key">
+          <span class="status-dot" id="key-status-dot"></span>
+          <span id="header-model-label">Model</span>
+        </button>
+        <button class="btn btn-icon btn-ghost" id="btn-toggle-theme" title="Toggle Dark/Light Theme" aria-label="Toggle Theme">
+          ☾
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-container">
+      <!-- ==================== STEP 1: SETUP & JD ==================== -->
+      <section class="step-view active" id="view-setup">
+        <div class="section-intro">
+          <div>
+            <h1>Configure Your Resume Workspace</h1>
+            <p class="muted">
+              Choose strict fact-grounded tailoring or Hypothetical Shortlist Mode with a personalized study plan.
+            </p>
+          </div>
+          <div class="preset-bar" id="sample-presets-bar">
+            <span class="preset-label">Quick Demo:</span>
+          </div>
+        </div>
+
+        <!-- Mode Selector -->
+        <div class="mode-selector-grid">
+          <label class="mode-card selected" data-mode-card="grounded">
+            <input type="radio" name="setup-mode" value="grounded" checked />
+            <div class="mode-card-top">
+              <span class="badge badge-emerald">Default · Strict Truth</span>
+              <span class="mode-check">✓</span>
+            </div>
+            <h3>Grounded Mode (Verified Facts Only)</h3>
+            <p>
+              Tailors your resume strictly from verified experiences. Blind NLI Critic blocks unsupported claims before export.
+            </p>
+          </label>
+
+          <label class="mode-card" data-mode-card="hypothetical">
+            <input type="radio" name="setup-mode" value="hypothetical" />
+            <div class="mode-card-top">
+              <span class="badge badge-violet">Shortlist Booster + Study Plan</span>
+              <span class="mode-check">✓</span>
+            </div>
+            <h3>Hypothetical Resume + Study Roadmap</h3>
+            <p>
+              Strategically bridges missing must-have JD skills to maximize shortlisting, highlights every stretch, and generates a checklist of what to study.
+            </p>
+          </label>
+        </div>
+
+        <!-- 3-Column Inputs -->
+        <div class="inputs-grid">
+          <!-- Base Resume -->
+          <div class="card input-card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Input 1</span>
+                <h3>Base Resume</h3>
+              </div>
+              <div class="seg-tabs" data-seg="resume">
+                <button type="button" class="seg-btn active" data-val="upload">Upload</button>
+                <button type="button" class="seg-btn" data-val="paste">Paste</button>
+                <button type="button" class="seg-btn" data-val="sample">Sample</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="seg-pane active" data-pane="resume-upload">
+                <label class="dropzone" for="input-resume-file">
+                  <input type="file" id="input-resume-file" accept=".pdf,.docx,.txt,.md,.json,.yaml,.yml,.tex" hidden />
+                  <div class="dropzone-icon">↑</div>
+                  <div class="dropzone-title" id="label-resume-file">Drop PDF, DOCX, YAML, JSON, or TXT</div>
+                  <div class="dropzone-sub">or click to browse local files</div>
+                </label>
+              </div>
+              <div class="seg-pane" data-pane="resume-paste">
+                <textarea id="input-resume-text" class="textarea" rows="7" placeholder="Paste your resume or master experience text here..."></textarea>
+              </div>
+              <div class="seg-pane" data-pane="resume-sample">
+                <div class="sample-box">
+                  <label class="field-label" for="select-resume-sample">Built-in Sample Resume</label>
+                  <select id="select-resume-sample" class="select"></select>
+                  <p class="muted small">Ready to test immediately across Software or Mechanical profiles.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LaTeX Template -->
+          <div class="card input-card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Input 2 · Required</span>
+                <h3>LaTeX Template (.tex)</h3>
+              </div>
+              <div class="seg-tabs" data-seg="tex">
+                <button type="button" class="seg-btn active" data-val="sample">Built-in ATS</button>
+                <button type="button" class="seg-btn" data-val="upload">Upload .tex</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="seg-pane active" data-pane="tex-sample">
+                <div class="sample-box">
+                  <div class="pill-info">
+                    <strong>ATS Single-Column Template</strong>
+                    <span class="muted small">Uses <code>dataset/software/template.tex</code> with clean section slots &amp; safe LaTeX escaping.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="seg-pane" data-pane="tex-upload">
+                <label class="dropzone" for="input-tex-file">
+                  <input type="file" id="input-tex-file" accept=".tex" hidden />
+                  <div class="dropzone-icon">TEX</div>
+                  <div class="dropzone-title" id="label-tex-file">Drop your Overleaf .tex template</div>
+                  <div class="dropzone-sub">Supports {{SLOT}} markers or standard \section{} headers</div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Target JD -->
+          <div class="card input-card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Input 3</span>
+                <h3>Target Job Description</h3>
+              </div>
+              <div class="seg-tabs" data-seg="jd">
+                <button type="button" class="seg-btn active" data-val="paste">Text / URL</button>
+                <button type="button" class="seg-btn" data-val="upload">Upload</button>
+                <button type="button" class="seg-btn" data-val="sample">Sample</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="seg-pane active" data-pane="jd-paste">
+                <textarea id="input-jd-text" class="textarea" rows="7" placeholder="Paste Job Description text or an https:// posting URL..."></textarea>
+              </div>
+              <div class="seg-pane" data-pane="jd-upload">
+                <label class="dropzone" for="input-jd-file">
+                  <input type="file" id="input-jd-file" accept=".txt,.pdf,.docx" hidden />
+                  <div class="dropzone-icon">JD</div>
+                  <div class="dropzone-title" id="label-jd-file">Drop JD file (.txt, .pdf, .docx)</div>
+                  <div class="dropzone-sub">or click to browse</div>
+                </label>
+              </div>
+              <div class="seg-pane" data-pane="jd-sample">
+                <div class="sample-box">
+                  <label class="field-label" for="select-jd-sample">Built-in Sample JD</label>
+                  <select id="select-jd-sample" class="select"></select>
+                  <textarea id="preview-jd-sample" class="textarea textarea-compact" rows="4" readonly></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-bar-center">
+          <button class="btn btn-primary btn-lg" id="btn-init-session">
+            <span class="btn-spinner hidden" id="spinner-init"></span>
+            <span id="text-init-btn">Initialize Workspace &amp; Profile JD</span>
+          </button>
+        </div>
+
+        <!-- Extracted State Preview (visible once session initialized) -->
+        <div class="setup-summary-grid hidden" id="setup-summary-panel">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Stage 1 · Source of Truth</span>
+                <h3 id="summary-candidate-name">Candidate Profile</h3>
+              </div>
+              <span class="badge badge-neutral" id="summary-exp-count">0 records</span>
+            </div>
+            <div class="card-body scroll-pane" id="summary-experiences-list"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Stage 2 Pre-Step · JD Intelligence</span>
+                <h3 id="summary-jd-title">Target Role</h3>
+              </div>
+              <div class="inline-badges" id="summary-jd-meta"></div>
+            </div>
+            <div class="card-body scroll-pane" id="summary-jd-keywords"></div>
+          </div>
+        </div>
+
+        <div class="next-step-footer hidden" id="setup-next-footer">
+          <button class="btn btn-primary" id="btn-goto-tailor">Proceed to Tailor &amp; ATS →</button>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 2: TAILOR & ATS ==================== -->
+      <section class="step-view" id="view-tailor">
+        <div class="workspace-toolbar card">
+          <div class="toolbar-left">
+            <div class="mode-switch-inline" role="group" aria-label="Tailoring Mode">
+              <button type="button" class="mode-switch-btn active" data-run-mode="grounded" id="run-mode-grounded">
+                Grounded (Strict)
+              </button>
+              <button type="button" class="mode-switch-btn" data-run-mode="hypothetical" id="run-mode-hypothetical">
+                ✦ Hypothetical Boost + Study List
+              </button>
+            </div>
+            <span class="muted small" id="tailor-iteration-label">Iteration 1 / 5</span>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn btn-primary" id="btn-run-iteration">
+              <span class="btn-spinner hidden" id="spinner-run"></span>
+              <span id="text-run-btn">Run Tailoring &amp; Verification</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live SSE Streaming Timeline -->
+        <div class="card stream-card hidden" id="stream-panel">
+          <div class="stream-head">
+            <strong id="stream-status-title">Running Pipeline...</strong>
+            <span class="muted small" id="stream-elapsed">Live stream</span>
+          </div>
+          <div class="stream-steps" id="stream-events-list"></div>
+        </div>
+
+        <!-- Split Workspace: ATS Scorecard + Resume Paper Preview -->
+        <div class="split-workspace" id="tailor-split-workspace">
+          <!-- Left Column: ATS Scorecard & Gaps -->
+          <div class="workspace-col">
+            <div class="card" id="ats-empty-card">
+              <div class="empty-state">
+                <div class="empty-icon">◈</div>
+                <h3>Ready to Tailor Your Resume</h3>
+                <p class="muted">
+                  Choose <strong>Grounded</strong> for strict fact verification or <strong>Hypothetical Boost</strong> to optimize shortlisting and generate a study roadmap.
+                </p>
+              </div>
+            </div>
+
+            <div class="hidden" id="ats-results-stack">
+              <div class="card score-hero-card">
+                <div class="score-ring-wrap">
+                  <svg class="score-ring" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="ring-bg" cx="60" cy="60" r="50" />
+                    <circle class="ring-fg" id="ats-ring-fg" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" />
+                  </svg>
+                  <div class="score-ring-center">
+                    <span class="score-big" id="ats-overall-score">0</span>
+                    <span class="score-sub">/ 100 ATS</span>
+                  </div>
+                </div>
+
+                <div class="score-bars-col">
+                  <div class="score-title-row">
+                    <h3>Hybrid ATS Scorecard</h3>
+                    <span class="badge badge-violet hidden" id="ats-uplift-badge">+0 vs Grounded</span>
+                  </div>
+                  <div class="bar-metric">
+                    <div class="bar-label"><span>Keyword Match (50%)</span><strong id="val-kw-score">0%</strong></div>
+                    <div class="bar-track"><div class="bar-fill" id="bar-kw-score"></div></div>
+                  </div>
+                  <div class="bar-metric">
+                    <div class="bar-label"><span>Recruiter Fit LLM (30%)</span><strong id="val-llm-score">0/100</strong></div>
+                    <div class="bar-track"><div class="bar-fill" id="bar-llm-score"></div></div>
+                  </div>
+                  <div class="bar-metric">
+                    <div class="bar-label"><span>ATS Hygiene (20%)</span><strong id="val-hyg-score">0%</strong></div>
+                    <div class="bar-track"><div class="bar-fill" id="bar-hyg-score"></div></div>
+                  </div>
+                  <div class="tier-pills-row">
+                    <span class="tier-pill">Tier-1 Must-Have: <strong id="val-tier1">0%</strong></span>
+                    <span class="tier-pill">Tier-2 Preferred: <strong id="val-tier2">0%</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-head">
+                  <h3>Recruiter Assessment &amp; Hygiene</h3>
+                </div>
+                <div class="card-body">
+                  <p class="recruiter-note" id="ats-recruiter-notes"></p>
+                  <div class="warnings-list hidden" id="ats-hygiene-warnings"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-head">
+                  <h3>Keyword Heatmap</h3>
+                  <div class="filter-pills" id="kw-filter-pills">
+                    <button type="button" class="pill-btn active" data-kw-filter="all">All</button>
+                    <button type="button" class="pill-btn" data-kw-filter="matched">Matched</button>
+                    <button type="button" class="pill-btn" data-kw-filter="missing">Missing</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="keyword-chip-grid" id="keyword-heatmap-grid"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-head">
+                  <h3>Gap Analysis</h3>
+                  <span class="muted small">Framing vs. Hard Tool Gaps</span>
+                </div>
+                <div class="card-body" id="ats-gaps-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Formatted Resume Paper Preview / Raw TeX -->
+          <div class="workspace-col">
+            <div class="card preview-shell">
+              <div class="card-head">
+                <div class="preview-title-group">
+                  <h3>Tailored Resume Preview</h3>
+                  <span class="badge badge-amber hidden" id="preview-hypo-count">0 Hypothetical Claims</span>
+                </div>
+                <div class="preview-actions">
+                  <div class="seg-tabs" data-seg="preview">
+                    <button type="button" class="seg-btn active" data-val="formatted">Paper Preview</button>
+                    <button type="button" class="seg-btn" data-val="latex">LaTeX (.tex)</button>
+                  </div>
+                  <button type="button" class="btn btn-ghost btn-sm" id="btn-copy-tex" title="Copy LaTeX">Copy .tex</button>
+                  <button type="button" class="btn btn-ghost btn-sm" id="btn-print-resume" title="Print or Save as PDF">Print / PDF</button>
+                </div>
+              </div>
+              <div class="card-body preview-body">
+                <div id="preview-formatted-pane">
+                  <div class="resume-paper" id="resume-paper-sheet">
+                    <div class="empty-state">
+                      <p class="muted">Run an iteration to preview your tailored resume here.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden" id="preview-latex-pane">
+                  <pre class="code-viewer"><code id="preview-latex-code"></code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="next-step-footer hidden" id="tailor-next-footer">
+              <button class="btn btn-secondary" id="btn-goto-study-from-tailor">View Study Roadmap →</button>
+              <button class="btn btn-primary" id="btn-goto-audit">Review Blind NLI Audit &amp; Approve →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 3: AUDIT & HITL GATE ==================== -->
+      <section class="step-view" id="view-audit">
+        <div class="audit-banner card">
+          <div class="audit-banner-left">
+            <span class="badge badge-neutral">Blind Adversarial Context Isolation</span>
+            <h2>Stage 4 · NLI Truth Audit &amp; HITL Gate</h2>
+            <p class="muted small">
+              The NLI Critic audits every resume bullet, summary, and skill strictly against your BaseExperience—without ever seeing the Job Description.
+            </p>
+          </div>
+          <div class="audit-kpis">
+            <div class="kpi-box"><span class="kpi-num" id="kpi-audit-total">0</span><span class="kpi-lbl">Audited</span></div>
+            <div class="kpi-box kpi-green"><span class="kpi-num" id="kpi-audit-supported">0</span><span class="kpi-lbl">Supported</span></div>
+            <div class="kpi-box kpi-amber"><span class="kpi-num" id="kpi-audit-stretched">0</span><span class="kpi-lbl">Stretched</span></div>
+            <div class="kpi-box kpi-rose"><span class="kpi-num" id="kpi-audit-unsupported">0</span><span class="kpi-lbl">Unsupported</span></div>
+          </div>
+        </div>
+
+        <div class="audit-layout">
+          <!-- Left: Audit Claim List -->
+          <div class="card">
+            <div class="card-head">
+              <div class="filter-pills" id="audit-filter-pills">
+                <button type="button" class="pill-btn active" data-audit-filter="ALL">All</button>
+                <button type="button" class="pill-btn" data-audit-filter="UNSUPPORTED">Unsupported</button>
+                <button type="button" class="pill-btn" data-audit-filter="STRETCHED">Stretched</button>
+                <button type="button" class="pill-btn" data-audit-filter="SUPPORTED">Supported</button>
+              </div>
+              <input type="search" class="input input-sm" id="audit-search-input" placeholder="Filter claims..." />
+            </div>
+            <div class="card-body scroll-pane" id="audit-claims-list"></div>
+          </div>
+
+          <!-- Right: HITL Decision Dock -->
+          <div class="card hitl-dock">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow">Human-in-the-Loop Gate</span>
+                <h3>Decision &amp; Actions</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="hitl-tabs" id="hitl-action-tabs">
+                <button type="button" class="hitl-tab active" data-hitl="APPROVE">Approve &amp; Export</button>
+                <button type="button" class="hitl-tab" data-hitl="REJECT">Reject &amp; Iterate</button>
+                <button type="button" class="hitl-tab" data-hitl="DIRECT_EDIT">Direct Edit</button>
+                <button type="button" class="hitl-tab" data-hitl="VERIFY_AND_PROMOTE">Verify Fact</button>
+                <button type="button" class="hitl-tab" data-hitl="ACCEPT_AND_LEARN">+ Study Queue</button>
+              </div>
+
+              <!-- APPROVE -->
+              <div class="hitl-pane active" data-hitl-pane="APPROVE">
+                <div class="gate-checklist" id="approve-gate-checklist"></div>
+                <button type="button" class="btn btn-primary btn-full" id="btn-hitl-approve">
+                  Approve &amp; Finalize Exports
+                </button>
+              </div>
+
+              <!-- REJECT -->
+              <div class="hitl-pane" data-hitl-pane="REJECT">
+                <label class="field-label">Flagged Claims to Remove / Tone Down</label>
+                <div class="checkbox-stack" id="reject-claims-checklist"></div>
+
+                <label class="field-label">Framing Gaps to Surface in Next Draft</label>
+                <div class="checkbox-stack" id="reject-gaps-checklist"></div>
+
+                <label class="field-label" for="reject-instructions">Additional Revision Instructions (one per line)</label>
+                <textarea id="reject-instructions" class="textarea" rows="3" placeholder="e.g. Emphasize distributed training metrics in exp_01"></textarea>
+                <button type="button" class="btn btn-primary btn-full" id="btn-hitl-reject">
+                  Record Feedback &amp; Prepare Next Iteration
+                </button>
+              </div>
+
+              <!-- DIRECT EDIT -->
+              <div class="hitl-pane" data-hitl-pane="DIRECT_EDIT">
+                <div id="direct-edit-form" class="direct-edit-stack"></div>
+                <button type="button" class="btn btn-primary btn-full" id="btn-hitl-direct-edit">
+                  Save Edits &amp; Re-Audit
+                </button>
+              </div>
+
+              <!-- VERIFY & PROMOTE -->
+              <div class="hitl-pane" data-hitl-pane="VERIFY_AND_PROMOTE">
+                <label class="field-label" for="promote-exp-id">Target Experience</label>
+                <select id="promote-exp-id" class="select"></select>
+                <div class="two-col-fields">
+                  <div>
+                    <label class="field-label" for="promote-metric-val">Verified Metric Value</label>
+                    <input type="text" id="promote-metric-val" class="input" placeholder="e.g. 35%" />
+                  </div>
+                  <div>
+                    <label class="field-label" for="promote-metric-ctx">Metric Context</label>
+                    <input type="text" id="promote-metric-ctx" class="input" placeholder="e.g. p95 latency reduction" />
+                  </div>
+                </div>
+                <label class="field-label" for="promote-skill">Verified Skill to Add</label>
+                <input type="text" id="promote-skill" class="input" placeholder="e.g. Kubernetes" />
+                <button type="button" class="btn btn-primary btn-full" id="btn-hitl-promote">
+                  Promote Verified Fact &amp; Re-Audit
+                </button>
+              </div>
+
+              <!-- ACCEPT & LEARN -->
+              <div class="hitl-pane" data-hitl-pane="ACCEPT_AND_LEARN">
+                <label class="field-label" for="learn-topic">Skill or Claim to Study</label>
+                <input type="text" id="learn-topic" class="input" placeholder="e.g. vLLM &amp; PagedAttention" />
+                <div class="two-col-fields">
+                  <div>
+                    <label class="field-label" for="learn-source">Source</label>
+                    <select id="learn-source" class="select">
+                      <option value="hard_tool_gap">Hard Tool Gap</option>
+                      <option value="accepted_stretch">Accepted Stretch</option>
+                      <option value="hypothetical_addition">Hypothetical Addition</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="field-label" for="learn-priority">Priority</label>
+                    <select id="learn-priority" class="select">
+                      <option value="high">High</option>
+                      <option value="medium" selected>Medium</option>
+                      <option value="low">Low</option>
+                    </select>
+                  </div>
+                </div>
+                <label class="field-label" for="learn-note">Context Note</label>
+                <input type="text" id="learn-note" class="input" placeholder="Why this matters for the interview..." />
+                <button type="button" class="btn btn-primary btn-full" id="btn-hitl-learn">
+                  Add to Study Queue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== STEP 4: STUDY PLAN & EXPORT ==================== -->
+      <section class="step-view" id="view-study">
+        <div class="study-hero card">
+          <div class="study-hero-main">
+            <span class="badge badge-violet" id="study-mode-pill">Study &amp; Interview Readiness</span>
+            <h2 id="study-hero-title">Personalized Study Roadmap</h2>
+            <p class="muted" id="study-hero-summary">
+              Every hypothetical enhancement, stretched claim, and hard skill gap translated into a structured prep checklist.
+            </p>
+          </div>
+          <div class="study-hero-actions">
+            <button type="button" class="btn btn-secondary" id="btn-generate-study-plan">
+              <span class="btn-spinner hidden" id="spinner-study"></span>
+              <span id="text-study-btn">Generate / Refresh Study Plan</span>
+            </button>
+            <button type="button" class="btn btn-primary hidden" id="btn-switch-hypothetical-here">
+              ✦ Boost Resume (Hypothetical Mode)
+            </button>
+          </div>
+        </div>
+
+        <!-- Study Stats & Progress -->
+        <div class="study-stats-strip hidden" id="study-stats-strip">
+          <div class="card stat-card">
+            <span class="stat-label">Topics Ready</span>
+            <strong class="stat-value" id="study-progress-text">0 / 0</strong>
+            <div class="bar-track"><div class="bar-fill bar-emerald" id="study-progress-bar"></div></div>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Estimated Prep Time</span>
+            <strong class="stat-value" id="study-total-hours">0.0 hrs</strong>
+            <span class="muted small">Tailored to JD depth</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">Resume Additions Tracked</span>
+            <strong class="stat-value" id="study-deltas-count">0</strong>
+            <span class="muted small">Explicitly mapped to resume</span>
+          </div>
+          <div class="card stat-card">
+            <span class="stat-label">To-Learn Queue Items</span>
+            <strong class="stat-value" id="study-queue-count">0</strong>
+            <span class="muted small">Exported to ToLearnQueue.json</span>
+          </div>
+        </div>
+
+        <!-- Hypothetical Deltas Table -->
+        <div class="card hidden" id="study-deltas-card">
+          <div class="card-head">
+            <div>
+              <span class="eyebrow">Shortlist Boost Diff</span>
+              <h3>What Changed on Your Hypothetical Resume</h3>
+            </div>
+          </div>
+          <div class="card-body" id="study-deltas-list"></div>
+        </div>
+
+        <!-- Study Checklist Filter & Cards -->
+        <div class="study-controls hidden" id="study-controls-bar">
+          <div class="filter-pills" id="study-priority-filters">
+            <button type="button" class="pill-btn active" data-study-filter="all">All Topics</button>
+            <button type="button" class="pill-btn" data-study-filter="high">High Priority</button>
+            <button type="button" class="pill-btn" data-study-filter="medium">Medium</button>
+            <button type="button" class="pill-btn" data-study-filter="low">Low</button>
+            <button type="button" class="pill-btn" data-study-filter="pending">Unstudied Only</button>
+          </div>
+          <a class="btn btn-ghost btn-sm hidden" id="link-download-study-md" download="StudyPlan.md">
+            ↓ Download StudyPlan.md
+          </a>
+        </div>
+
+        <div class="study-cards-grid" id="study-cards-container"></div>
+
+        <!-- Export Center -->
+        <div class="card export-center" id="export-center-card">
+          <div class="card-head">
+            <div>
+              <span class="eyebrow">Artifacts &amp; Deliverables</span>
+              <h3>Export Center</h3>
+            </div>
+            <span class="badge badge-neutral" id="export-status-badge">Draft</span>
+          </div>
+          <div class="card-body export-grid" id="export-artifacts-grid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ==================== SESSIONS SLIDE-OVER DRAWER ==================== -->
+  <div class="drawer-backdrop hidden" id="sessions-backdrop"></div>
+  <aside class="drawer hidden no-print" id="sessions-drawer" aria-label="Saved Sessions">
+    <div class="drawer-head">
+      <div>
+        <h3>Saved Sessions</h3>
+        <p class="muted small">Zero-DB JSON runs stored locally in <code>runs/</code></p>
+      </div>
+      <button type="button" class="btn btn-icon btn-ghost" id="btn-close-sessions">✕</button>
+    </div>
+    <div class="drawer-body" id="sessions-drawer-list"></div>
+  </aside>
+
+  <!-- ==================== SETTINGS / BYOK MODAL ==================== -->
+  <div class="modal-backdrop hidden no-print" id="settings-modal-backdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+      <div class="modal-head">
+        <div>
+          <h3 id="settings-modal-title">Model &amp; BYOK API Configuration</h3>
+          <p class="muted small">Keys stay in browser sessionStorage and are never saved to disk.</p>
+        </div>
+        <button type="button" class="btn btn-icon btn-ghost" id="btn-close-settings">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="env-status-box" id="env-key-status-box"></div>
+        <label class="field-label" for="cfg-provider">LLM Provider</label>
+        <select id="cfg-provider" class="select">
+          <option value="gemini">Google Gemini</option>
+          <option value="claude">Anthropic Claude</option>
+          <option value="ollama">Local Ollama</option>
+        </select>
+
+        <label class="field-label" for="cfg-model">Model Name</label>
+        <input type="text" id="cfg-model" class="input" value="gemini-3.8-flash" />
+
+        <label class="field-label" for="cfg-api-key">BYOK API Key (optional if set in .env)</label>
+        <input type="password" id="cfg-api-key" class="input" placeholder="Leave blank to use server .env" />
+
+        <label class="field-label" for="cfg-max-iter">Max Iterations</label>
+        <input type="number" id="cfg-max-iter" class="input" min="1" max="10" value="5" />
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-primary" id="btn-save-settings">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Stack -->
+  <div class="toast-stack no-print" id="toast-stack" aria-live="polite"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

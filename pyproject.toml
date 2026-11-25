@@ -1,0 +1,32 @@
+[project]
+name = "resume-copilot"
+version = "0.1.0"
+description = "Lightweight, modular AI resume tailoring and verification engine"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7.0",
+    "pymupdf>=1.24.0",
+    "python-docx>=1.1.0",
+    "trafilatura>=1.12.0",
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.1",
+    "httpx>=0.27.0",
+    "google-genai>=1.0.0",
+    "anthropic>=0.40.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "python-multipart>=0.0.12",
+    "streamlit>=1.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["core*", "tools*", "agents*", "api*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
