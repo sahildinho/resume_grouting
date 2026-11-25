@@ -1,5 +1,7 @@
 # Resume Copilot
 
+> *"Koi baat nahi.... Isme GROUT BHAR DANGE..."*
+
 **Resume Copilot** is an AI-powered resume tailoring, verification, and interview-prep studio. You provide your existing resume, a target job description (JD), and a LaTeX (`.tex`) template, and Resume Copilot tailors your bullet points, checks every claim against your real experience, runs ATS hygiene checks, compiles a clean `.tex` / PDF resume, and builds a personalized study roadmap for any skill gaps.
 
 ---
